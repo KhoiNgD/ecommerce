@@ -31,6 +31,10 @@ const GlobalStyles = createGlobalStyle`
 html, body {
   height: 100%;
 }
+
+html {
+  font-size: 62.5%;
+}
 /*
   Typographic tweaks!
   4. Add accessible line-height
