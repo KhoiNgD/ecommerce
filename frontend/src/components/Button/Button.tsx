@@ -8,10 +8,10 @@ interface Props {
   children: React.ReactNode;
 }
 
-function Button({ variant = "normal" }: Props) {
-  if (variant === "fill") return <FillButton />;
-  if (variant === "outline") return <OutlineButton />;
-  return <IconButton />;
+function Button({ variant = "normal", children }: Props) {
+  if (variant === "fill") return <FillButton children={children} />;
+  if (variant === "outline") return <OutlineButton children={children} />;
+  return <IconButton children={children} />;
 }
 
 const StyledButton = styled.button`
@@ -20,24 +20,27 @@ const StyledButton = styled.button`
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+  border: none;
+  outline: none;
+  cursor: pointer;
 `;
 
 const FillButton = styled(StyledButton)`
-  color: var(--primary-white);
-  background: var(--primary-color);
+  color: hsl(var(--primary-white));
+  background: hsl(var(--primary-color));
 
   &:hover {
-    background: var(--secondary-color);
+    background: hsl(var(--secondary-color));
   }
 `;
 
 const OutlineButton = styled(StyledButton)`
-  color: var(--primary-black);
-  border: 1px solid var(--primary-color);
+  color: hsl(var(--primary-black));
+  border: 1px solid hsl(var(--primary-color));
 
   &:hover {
-    color: var(--primary-white);
-    background: var(--secondary-black);
+    color: hsl(var(--primary-white));
+    background: hsl(var(--secondary-black));
   }
 `;
 
@@ -45,7 +48,7 @@ const IconButton = styled(StyledButton)`
   color: hsl(var(--primary-white) / 0.5);
 
   &:hover {
-    color: var(--primary-color);
+    color: hsl(var(--primary-color));
   }
 `;
 
