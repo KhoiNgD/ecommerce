@@ -71,9 +71,14 @@ const StyledContainer = styled(Container)`
 
 const HeroContent = styled.div`
   width: min-content;
-
   position: absolute;
   top: 30%;
+
+  @media (max-width: 1100px) {
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const HeroTextBox = styled.div`
