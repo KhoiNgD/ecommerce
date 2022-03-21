@@ -8,20 +8,20 @@ import { Header } from "./Header";
 function HeroHeader() {
   return (
     <Wrapper>
-      <picture>
-        <source
-          media="(max-width: 1110px)"
-          srcSet="./assets/home/tablet/image-header.jpg"
-        />
+      <Picture>
         <source
           media="(max-width: 550px)"
           srcSet="./assets/home/mobile/image-header.jpg"
+        />
+        <source
+          media="(max-width: 1110px)"
+          srcSet="./assets/home/tablet/image-header.jpg"
         />
         <img
           src="./assets/home/desktop/image-hero.jpg"
           alt="new product in headphone category"
         />
-      </picture>
+      </Picture>
 
       <StyledContainer>
         <Header />
@@ -47,8 +47,19 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
+const Picture = styled.picture`
+  & img {
+    width: 100%;
+  }
+`;
+
 const StyledContainer = styled(Container)`
   position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
 `;
 
 const HeroContent = styled.div`

@@ -8,6 +8,7 @@ function Container({ children, className }: Props) {
 }
 
 const Wrapper = styled.div`
+  margin: auto;
   max-width: 1110px;
 
   @media (max-width: 1110px) {
