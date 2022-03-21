@@ -9,7 +9,7 @@ function Container({ children, className }: Props) {
 
 const Wrapper = styled.div`
   margin: auto;
-  max-width: 1110px;
+  max-width: 1190px;
   padding-left: 40px;
   padding-right: 40px;
 
