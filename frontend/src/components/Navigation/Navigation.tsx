@@ -15,6 +15,13 @@ function Navigation() {
 const NavWrapper = styled.nav`
   display: flex;
   gap: 34px;
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
