@@ -64,6 +64,9 @@ const StyledContainer = styled(Container)`
 
 const HeroContent = styled.div`
   width: min-content;
+
+  position: absolute;
+  top: 30%;
 `;
 
 const HeroTextBox = styled.div`
