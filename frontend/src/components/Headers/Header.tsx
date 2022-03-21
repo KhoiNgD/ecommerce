@@ -8,7 +8,7 @@ type Props = { className?: string };
 function Header({ className = "" }: Props) {
   return (
     <Wrapper className={className}>
-      <LogoWrapper>
+      <LogoWrapper to="/">
         <Logo />
       </LogoWrapper>
 
@@ -30,17 +30,15 @@ const Wrapper = styled.header`
   height: 97px;
   background: transparent;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  color: var(--primary-white);
 
   @media (max-width: 1100px) {
     height: 90px;
   }
 `;
 
-const LogoWrapper = styled.div`
-  flex: 1;
-`;
+const LogoWrapper = styled(NavLink)``;
 
 const NavWrapper = styled.nav`
   display: flex;
@@ -53,15 +51,17 @@ const StyledNavLink = styled(NavLink)`
   font-weight: 700;
   letter-spacing: 2px;
   line-height: 2.5rem;
+  color: hsl(var(--primary-white));
+  text-decoration: none;
 
   &:hover,
   &.active {
-    color: var(--primary-color);
+    color: hsl(var(--primary-color));
   }
 `;
 
 const CartWrapper = styled.div`
-  flex: 1;
+  cursor: pointer;
 `;
 
 export { Header };
