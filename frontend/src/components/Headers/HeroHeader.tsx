@@ -50,6 +50,13 @@ const Wrapper = styled.div`
 const Picture = styled.picture`
   & img {
     width: 100%;
+    max-height: 729px;
+    object-fit: cover;
+    object-position: center;
+
+    @media (max-width: 550px) {
+      max-height: 600px;
+    }
   }
 `;
 
