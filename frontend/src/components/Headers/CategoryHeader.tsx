@@ -27,7 +27,7 @@ const Wrapper = styled.div`
 
 const CategoryBox = styled.div`
   padding: 98px 0;
-  margin: auto;
+  text-align: center;
 `;
 
 export { CategoryHeader };
