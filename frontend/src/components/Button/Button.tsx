@@ -1,9 +1,11 @@
+import React from "react";
 import styled from "styled-components";
 
 type ButtonVariant = "fill" | "outline" | "normal";
 
 interface Props {
   variant: ButtonVariant;
+  children: React.ReactNode;
 }
 
 function Button({ variant = "normal" }: Props) {

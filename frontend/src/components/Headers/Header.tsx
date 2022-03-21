@@ -3,9 +3,11 @@ import { ReactComponent as Cart } from "@assets/icon-cart.svg";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-function Header() {
+type Props = { className?: string };
+
+function Header({ className = "" }: Props) {
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <LogoWrapper>
         <Logo />
       </LogoWrapper>
@@ -25,9 +27,15 @@ function Header() {
 }
 
 const Wrapper = styled.header`
+  height: 97px;
+  background: transparent;
   display: flex;
   align-items: center;
   color: var(--primary-white);
+
+  @media (max-width: 1100px) {
+    height: 90px;
+  }
 `;
 
 const LogoWrapper = styled.div`
