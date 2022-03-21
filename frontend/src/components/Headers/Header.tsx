@@ -1,5 +1,5 @@
-import { ReactComponent as Logo } from "@assets/logo.svg";
-import { ReactComponent as Cart } from "@assets/icon-cart.svg";
+import { ReactComponent as Logo } from "assets/logo.svg";
+import { ReactComponent as Cart } from "assets/icon-cart.svg";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 

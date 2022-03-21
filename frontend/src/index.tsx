@@ -4,18 +4,21 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Headphones } from "@pages/Headphones";
-import { Speakers } from "@pages/Speakers";
-import { Earphones } from "@pages/Earphones";
+import { Headphones } from "pages/Headphones";
+import { Speakers } from "pages/Speakers";
+import { Earphones } from "pages/Earphones";
+import { Home } from "pages/Home";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="headphones" element={<Headphones />} />
-        <Route path="earphones" element={<Earphones />} />
-        <Route path="speakers" element={<Speakers />} />
+        <Route path="/" element={<App />}>
+          <Route index element={<Home />} />
+          <Route path="headphones" element={<Headphones />} />
+          <Route path="earphones" element={<Earphones />} />
+          <Route path="speakers" element={<Speakers />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

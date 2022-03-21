@@ -1,14 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@helpers/*": ["./src/helpers/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@utils": ["./src/utils/index.js"]
-    },
+    "baseUrl": "src",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -25,6 +17,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "exclude": ["./node_modules"],
   "include": ["src"]
 }

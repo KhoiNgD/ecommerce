@@ -1,6 +1,6 @@
-import { Button } from "@components/Button/Button";
-import { Container } from "@components/Container";
-import { Body, H1, Overline } from "@components/Typographies";
+import { Button } from "components/Button/Button";
+import { Container } from "components/Container";
+import { Body, H1, Overline } from "components/Typographies";
 import styled from "styled-components";
 import { Border } from "./Border";
 import { Header } from "./Header";
