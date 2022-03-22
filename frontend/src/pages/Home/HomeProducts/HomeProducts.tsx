@@ -1,7 +1,16 @@
 import styled from "styled-components";
+import PrimaryProduct from "./PrimaryProduct";
+import SecondaryProduct from "./SecondaryProduct";
+import TertiaryProduct from "./TertiaryProduct";
 
 function HomeProducts() {
-  return <Wrapper>Products</Wrapper>;
+  return (
+    <Wrapper>
+      <PrimaryProduct />
+      <SecondaryProduct />
+      <TertiaryProduct />
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.div`

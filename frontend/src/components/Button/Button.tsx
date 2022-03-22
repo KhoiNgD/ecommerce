@@ -6,12 +6,13 @@ type ButtonVariant = "fill" | "outline" | "normal";
 interface Props {
   variant: ButtonVariant;
   children: React.ReactNode;
+  className?: string;
 }
 
-function Button({ variant = "normal", children }: Props) {
-  if (variant === "fill") return <FillButton children={children} />;
-  if (variant === "outline") return <OutlineButton children={children} />;
-  return <IconButton children={children} />;
+function Button({ variant = "normal", ...props }: Props) {
+  if (variant === "fill") return <FillButton {...props} />;
+  if (variant === "outline") return <OutlineButton {...props} />;
+  return <IconButton {...props} />;
 }
 
 const StyledButton = styled.button`
