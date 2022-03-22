@@ -45,7 +45,11 @@ const OutlineButton = styled(StyledButton)`
 `;
 
 const IconButton = styled(StyledButton)`
-  color: hsl(var(--primary-white) / 0.5);
+  color: hsl(var(--primary-dark) / 0.5);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 
   &:hover {
     color: hsl(var(--primary-color));
