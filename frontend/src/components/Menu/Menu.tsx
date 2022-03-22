@@ -1,12 +1,13 @@
+import { Category } from "shared";
 import styled from "styled-components";
 import { MenuItem } from "./MenuItem";
 
 function Menu() {
   return (
     <Wrapper>
-      <MenuItem category="headphones" />
-      <MenuItem category="speakers" />
-      <MenuItem category="earphones" />
+      <MenuItem category={Category.HEADPHONES} />
+      <MenuItem category={Category.SPEAPKERS} />
+      <MenuItem category={Category.EARPHONES} />
     </Wrapper>
   );
 }
