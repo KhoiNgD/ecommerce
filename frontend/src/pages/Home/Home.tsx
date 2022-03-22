@@ -20,7 +20,8 @@ const Wrapper = styled(Container)`
   gap: 168px;
 
   @media (max-width: 1100px) {
-    padding: 96px 0;
+    padding-top: 96px;
+    padding-bottom: 96px;
     gap: 96px;
   }
 
