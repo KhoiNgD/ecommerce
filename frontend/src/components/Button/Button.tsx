@@ -37,11 +37,12 @@ const FillButton = styled(StyledButton)`
 
 const OutlineButton = styled(StyledButton)`
   color: hsl(var(--primary-black));
-  border: 1px solid hsl(var(--primary-color));
+  background: transparent;
+  border: 1px solid hsl(var(--primary-dark));
 
   &:hover {
     color: hsl(var(--primary-white));
-    background: hsl(var(--secondary-black));
+    background: hsl(var(--primary-dark));
   }
 `;
 
