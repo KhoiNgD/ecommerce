@@ -5,15 +5,13 @@ import { Footer } from "components/Footer";
 
 function App() {
   return (
-    <div>
+    <>
       <Headers />
-      <main>
-        <Outlet />
-      </main>
+      <Outlet />
       <Footer />
 
       <GlobalStyles />
-    </div>
+    </>
   );
 }
 
