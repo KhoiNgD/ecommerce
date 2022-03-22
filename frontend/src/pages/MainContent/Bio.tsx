@@ -14,29 +14,72 @@ function Bio() {
         />
       </PictureWrapper>
       <ContentWrapper>
-        <H2>Bringing you the best audio gear</H2>
-        <Body>
+        <H2>
+          Bringing you the <ProminentText>best</ProminentText> audio gear
+        </H2>
+        <StyledBody>
           Located at the heart of New York City, Audiophile is the premier store
           for high end headphones, earphones, speakers, and audio accessories.
           We have a large showroom and luxury demonstration rooms available for
           you to browse and experience a wide range of our products. Stop by our
           store to meet some of the fantastic people who make Audiophile the
           best place to buy your portable audio equipment.
-        </Body>
+        </StyledBody>
       </ContentWrapper>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.section`
-  display: flex;
+  position: relative;
+  text-align: right;
+
+  @media (max-width: 1100px) {
+    text-align: revert;
+  }
 `;
 
 const PictureWrapper = styled.div`
   border-radius: var(--border-radius);
   overflow: hidden;
+  display: inline-block;
+
+  @media (max-width: 1100px) {
+    display: block;
+  }
 `;
 
-const ContentWrapper = styled.div``;
+const ContentWrapper = styled.div`
+  max-width: 445px;
+  text-align: left;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+
+  @media (max-width: 1100px) {
+    max-width: 573px;
+    position: revert;
+    transform: none;
+    margin: auto;
+    margin-top: 62px;
+    text-align: center;
+  }
+
+  @media (max-width: 550px) {
+    max-width: revert;
+    margin-top: 40px;
+  }
+`;
+
+const ProminentText = styled.span`
+  color: hsl(var(--primary-color));
+`;
+
+const StyledBody = styled(Body)`
+  margin-top: 32px;
+  color: hsl(var(--primary-dark) / 0.5);
+`;
 
 export { Bio };
