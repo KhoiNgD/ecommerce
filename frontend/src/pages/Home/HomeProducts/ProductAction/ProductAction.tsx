@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   color: hsl(var(--primary-dark));
   display: flex;
   flex-direction: column;
+  align-items: baseline;
   gap: 32px;
 `;
 
