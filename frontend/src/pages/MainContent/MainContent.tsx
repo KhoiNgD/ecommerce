@@ -17,6 +17,14 @@ function MainContent() {
 
 const BioContainer = styled(Container)`
   margin-bottom: 200px;
+
+  @media (max-width: 1100px) {
+    margin-bottom: 96px;
+  }
+
+  @media (max-width: 550px) {
+    margin-bottom: 120px;
+  }
 `;
 
 export { MainContent };
