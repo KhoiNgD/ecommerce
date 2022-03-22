@@ -27,7 +27,7 @@ function MenuItem({ category }: Props) {
 
 const Wrapper = styled(NavLink)`
   background: hsl(var(--grey));
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   text-decoration: none;
   color: hsl(var(--primary-dark));
 

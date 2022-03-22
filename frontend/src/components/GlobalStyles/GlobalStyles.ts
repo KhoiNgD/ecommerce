@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
     --primary-white: 0deg 0% 100%;
     --secondary-white: 0deg 0% 98%;
     --grey: 0deg 0% 95%;
+    --border-radius: 8px;
 }
 /*
   1. Use a more-intuitive box-sizing model.
