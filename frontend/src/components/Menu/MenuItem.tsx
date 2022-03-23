@@ -38,20 +38,22 @@ const Wrapper = styled(NavLink)`
   &:hover button {
     color: hsl(var(--primary-color));
   }
-`;
 
-const Image = styled.img`
-  --height: 160px;
-  height: var(--height);
-  margin-top: calc(((var(--height) / 2) - 20px) * -1);
+  --image-height: 160px;
+  margin-top: calc(var(--image-height) / 2);
 
   @media (max-width: 1100px) {
-    --height: 133px;
+    --image-height: 133px;
   }
 
   @media (max-width: 550px) {
-    --height: 104px;
+    --image-height: 104px;
   }
+`;
+
+const Image = styled.img`
+  height: var(--image-height);
+  margin-top: calc(((var(--image-height) / 2) - 20px) * -1);
 `;
 
 const ButtonWrapper = styled.p`
