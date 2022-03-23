@@ -8,10 +8,10 @@ type Props = { category: string };
 
 function MenuItem({ category }: Props) {
   return (
-    <Wrapper to={category}>
+    <Wrapper to={`/category/${category}`}>
       <Image
-        src={`./assets/shared/desktop/image-category-thumbnail-${category}.png`}
-        alt="category thumbnail headphone"
+        src={`${process.env.PUBLIC_URL}/assets/shared/desktop/image-category-thumbnail-${category}.png`}
+        alt={`category thumbnail ${category}`}
       />
 
       <H6>{category}</H6>

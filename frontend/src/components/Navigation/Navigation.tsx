@@ -5,9 +5,9 @@ function Navigation() {
   return (
     <NavWrapper>
       <StyledNavLink to="/">Home</StyledNavLink>
-      <StyledNavLink to="/headphones">Headphones</StyledNavLink>
-      <StyledNavLink to="/speakers">Speakers</StyledNavLink>
-      <StyledNavLink to="/earphones">Earphones</StyledNavLink>
+      <StyledNavLink to="/category/headphones">Headphones</StyledNavLink>
+      <StyledNavLink to="/category/speakers">Speakers</StyledNavLink>
+      <StyledNavLink to="/category/earphones">Earphones</StyledNavLink>
     </NavWrapper>
   );
 }

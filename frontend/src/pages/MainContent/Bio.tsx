@@ -7,9 +7,9 @@ function Bio() {
     <Wrapper>
       <PictureWrapper>
         <ResponsivePicture
-          mobileSrc="./assets/shared/mobile/image-best-gear.jpg"
-          tabletSrc="./assets/shared/tablet/image-best-gear.jpg"
-          desktopSrc="./assets/shared/desktop/image-best-gear.jpg"
+          mobileSrc={`${process.env.PUBLIC_URL}/assets/shared/mobile/image-best-gear.jpg`}
+          tabletSrc={`${process.env.PUBLIC_URL}/assets/shared/tablet/image-best-gear.jpg`}
+          desktopSrc={`${process.env.PUBLIC_URL}/assets/shared/desktop/image-best-gear.jpg`}
           alt="A man is experiencing one of our top gear"
         />
       </PictureWrapper>
