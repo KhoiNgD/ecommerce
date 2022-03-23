@@ -9,7 +9,7 @@ import { MainContent } from "pages/MainContent";
 import { Checkout } from "pages/Checkout";
 import { Category } from "pages/Category";
 import { ProductList } from "pages/Category/ProductList";
-import { ProductDetail } from "pages/Category/ProductDetail";
+import { Details } from "pages/Category/Details";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,10 +20,7 @@ ReactDOM.render(
             <Route index element={<Home />} />
             <Route path="category" element={<Category />}>
               <Route path=":category" element={<ProductList />} />
-              <Route
-                path=":category/:productName"
-                element={<ProductDetail />}
-              />
+              <Route path=":category/:productName" element={<Details />} />
             </Route>
           </Route>
           <Route path="checkout" element={<Checkout />} />
