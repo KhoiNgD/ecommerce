@@ -4,13 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Headphones } from "pages/Category/Headphones";
-import { Speakers } from "pages/Category/Speakers";
-import { Earphones } from "pages/Category/Earphones";
 import { Home } from "pages/Home";
 import { MainContent } from "pages/MainContent";
 import { Checkout } from "pages/Checkout";
 import { Category } from "pages/Category";
+import { ProductList } from "pages/Category/ProductList";
+import { ProductDetail } from "pages/Category/ProductDetail";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,9 +19,9 @@ ReactDOM.render(
           <Route path="" element={<MainContent />}>
             <Route index element={<Home />} />
             <Route path="category" element={<Category />}>
-              <Route path="headphones" element={<Headphones />} />
-              <Route path="earphones" element={<Earphones />} />
-              <Route path="speakers" element={<Speakers />} />
+              <Route path=":category" element={<ProductList />}>
+                <Route path=":productName" element={<ProductDetail />} />
+              </Route>
             </Route>
           </Route>
           <Route path="checkout" element={<Checkout />} />
