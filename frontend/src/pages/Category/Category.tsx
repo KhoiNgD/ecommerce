@@ -19,6 +19,18 @@ const StyledContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   gap: 160px;
+
+  position: relative;
+
+  @media (max-width: 1100px) {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    gap: 120px;
+  }
+
+  @media (max-width: 550px) {
+    padding-top: 64px;
+  }
 `;
 
 export { Category };
