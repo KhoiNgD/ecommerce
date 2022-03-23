@@ -1,6 +1,7 @@
 import { Button } from "components/Button/Button";
 import { ResponsivePicture } from "components/ResponsivePicture";
 import { Body, H2, Overline } from "components/Typographies";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 function Product() {
@@ -22,7 +23,9 @@ function Product() {
           redefines your premium headphone experience by reproducing the
           balanced depth and precision of studio-quality sound.
         </StyledBody>
-        <Button variant="fill">See Product</Button>
+        <NavLink to="xx99-mark-two-headphones">
+          <Button variant="fill">See Product</Button>
+        </NavLink>
       </ProductInformation>
     </Wrapper>
   );
