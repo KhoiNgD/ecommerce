@@ -19,9 +19,11 @@ ReactDOM.render(
           <Route path="" element={<MainContent />}>
             <Route index element={<Home />} />
             <Route path="category" element={<Category />}>
-              <Route path=":category" element={<ProductList />}>
-                <Route path=":productName" element={<ProductDetail />} />
-              </Route>
+              <Route path=":category" element={<ProductList />} />
+              <Route
+                path=":category/:productName"
+                element={<ProductDetail />}
+              />
             </Route>
           </Route>
           <Route path="checkout" element={<Checkout />} />
