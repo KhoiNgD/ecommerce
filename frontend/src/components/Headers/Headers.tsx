@@ -1,3 +1,4 @@
+import { Container } from "components/Container";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { CategoryHeader } from "./CategoryHeader";
@@ -17,10 +18,16 @@ function Headers() {
     return <CategoryHeader category={path} />;
   }
 
-  return <StyledHeader />;
+  return (
+    <HeaderWrapper>
+      <Container>
+        <Header />
+      </Container>
+    </HeaderWrapper>
+  );
 }
 
-const StyledHeader = styled(Header)`
+const HeaderWrapper = styled("div")`
   background: hsl(var(--primary-dark));
 `;
 
