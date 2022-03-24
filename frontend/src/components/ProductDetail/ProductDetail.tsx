@@ -1,4 +1,5 @@
 import { Button } from "components/Button/Button";
+import { InputNumber } from "components/InputNumber";
 import { ResponsivePicture } from "components/ResponsivePicture";
 import { Body, H2, H6, Overline } from "components/Typographies";
 import styled from "styled-components";
@@ -25,7 +26,7 @@ function ProductDetail() {
         </StyledBody>
         <H6>$ 2,999</H6>
         <ActionWrapper>
-          -1+
+          <InputNumber maxValue={3} />
           <Button variant="fill">Add To Cart</Button>
         </ActionWrapper>
       </ProductInformation>
