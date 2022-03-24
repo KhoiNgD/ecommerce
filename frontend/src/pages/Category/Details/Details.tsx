@@ -1,5 +1,6 @@
 import { ProductDescription } from "components/ProductDescription";
 import { ProductDetail } from "components/ProductDetail";
+import { ProductGallery } from "components/ProductGallery";
 import { Body } from "components/Typographies";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -16,6 +17,7 @@ function Details() {
       <Wrapper>
         <ProductDetail />
         <ProductDescription />
+        <ProductGallery />
       </Wrapper>
     </>
   );
