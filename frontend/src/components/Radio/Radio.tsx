@@ -1,6 +1,8 @@
 import { FormLabel } from "components/FormLabel";
 import styled from "styled-components";
 
+// Radio button style guide: https://moderncss.dev/pure-css-custom-styled-radio-buttons/
+
 type Props = { id: string; label: string };
 function Radio({ id, label }: Props) {
   const isChecked = false;

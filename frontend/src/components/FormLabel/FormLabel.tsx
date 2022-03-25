@@ -12,6 +12,7 @@ const Label = styled.label`
   letter-spacing: -0.21px;
   text-transform: capitalize;
   color: hsl(var(--primary-dark));
+  cursor: pointer;
 `;
 
 export { FormLabel };
