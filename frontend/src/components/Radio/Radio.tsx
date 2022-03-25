@@ -1,0 +1,59 @@
+import { FormLabel } from "components/FormLabel";
+import styled from "styled-components";
+
+type Props = { id: string; label: string };
+function Radio({ id, label }: Props) {
+  const isChecked = false;
+
+  return (
+    <Wrapper isChecked={isChecked}>
+      <Input type="radio" id={id} checked={isChecked} />
+      <FormLabel htmlFor={id}>{label}</FormLabel>
+    </Wrapper>
+  );
+}
+
+const Wrapper = styled.div<{ isChecked: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 16px;
+  border: 1px solid;
+  border-color: ${(props) =>
+    props.isChecked ? "hsl(var(--primary-color))" : "#cfcfcf"};
+  border-radius: var(--border-radius);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    border-color: hsl(var(--primary-color));
+  }
+`;
+
+const Input = styled.input`
+  appearance: none;
+  width: 2em;
+  height: 2em;
+  outline: none;
+  border: 1px solid #cfcfcf;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.3s transform ease-in-out;
+    box-shadow: inset 1em 1em hsl(var(--primary-color));
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+`;
+
+export { Radio };
