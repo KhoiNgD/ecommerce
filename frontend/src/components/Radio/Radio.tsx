@@ -1,15 +1,14 @@
 import { FormLabel } from "components/FormLabel";
+import React from "react";
 import styled from "styled-components";
 
 // Radio button style guide: https://moderncss.dev/pure-css-custom-styled-radio-buttons/
 
-type Props = { id: string; label: string };
-function Radio({ id, label }: Props) {
-  const isChecked = false;
-
+type Props = { id: string; label: string; name: string; value: string };
+function Radio({ id, label, ...props }: Props) {
   return (
-    <Wrapper isChecked={isChecked}>
-      <Input type="radio" id={id} checked={isChecked} />
+    <Wrapper isChecked={false}>
+      <Input type="radio" id={id} {...props} />
       <FormLabel htmlFor={id}>{label}</FormLabel>
     </Wrapper>
   );

@@ -1,12 +1,24 @@
 import { FormLabel } from "components/FormLabel";
 import styled from "styled-components";
 
-type Props = { label: string; placeholder: string; id: string };
-function TextField({ label, placeholder, id }: Props) {
+type Props = {
+  label: string;
+  placeholder: string;
+  id: string;
+  type?: string;
+  className?: string;
+};
+function TextField({
+  label,
+  placeholder,
+  id,
+  type = "text",
+  className = "",
+}: Props) {
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <FormLabel htmlFor={id}>{label}</FormLabel>
-      <Input id={id} placeholder={placeholder} />
+      <Input id={id} placeholder={placeholder} type={type} />
     </Wrapper>
   );
 }
@@ -36,6 +48,10 @@ const Input = styled.input`
 
   &::placeholder {
     color: hsl(var(--primary-dark) / 0.4);
+  }
+
+  @media (max-width: 1100px) {
+    padding: 18px 24px;
   }
 `;
 
