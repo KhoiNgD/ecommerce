@@ -1,19 +1,14 @@
+import { NavigateBack } from "components/NavigateBack/NavigateBack";
 import { ProductDescription } from "components/ProductDescription";
 import { ProductDetail } from "components/ProductDetail";
 import { ProductGallery } from "components/ProductGallery";
 import { ProductOthers } from "components/ProductOthers";
-import { Body } from "components/Typographies";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 function Details() {
-  const navigate = useNavigate();
-
-  const navigateBack = () => navigate(-1);
-
   return (
     <>
-      <NavigateBack onClick={navigateBack}>Go Back</NavigateBack>
+      <GoBack />
 
       <Wrapper>
         <ProductDetail />
@@ -25,7 +20,7 @@ function Details() {
   );
 }
 
-const NavigateBack = styled(Body)`
+const GoBack = styled(NavigateBack)`
   cursor: pointer;
   color: hsl(var(--primary-dark) / 0.5);
   position: absolute;
