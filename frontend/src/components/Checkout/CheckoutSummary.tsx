@@ -1,4 +1,5 @@
 import { Button } from "components/Button/Button";
+import { PriceDetail } from "components/PriceDetail";
 import { ProductSummary } from "components/ProductSummary";
 import { Body, H6 } from "components/Typographies";
 import styled from "styled-components";
@@ -18,18 +19,9 @@ function CheckoutSummary({ className = "" }: Props) {
         <ProductSummary quantity={<Quantity />} />
       </Products>
       <TotalSummary>
-        <Row>
-          <StyledBody>TOTAL</StyledBody>
-          <StyledH6>$ 5,396</StyledH6>
-        </Row>
-        <Row>
-          <StyledBody>SHIPPING</StyledBody>
-          <StyledH6>$ 50</StyledH6>
-        </Row>
-        <Row>
-          <StyledBody>VAT (INCLUDED)</StyledBody>
-          <StyledH6>$ 1,079</StyledH6>
-        </Row>
+        <PriceDetail title="TOTAL" price="5,396" />
+        <PriceDetail title="SHIPPING" price="50" />
+        <PriceDetail title="VAT (INCLUDED)" price="1,079" />
       </TotalSummary>
       <GrandTotal>
         <Row>
