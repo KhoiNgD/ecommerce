@@ -9,68 +9,60 @@ function CheckoutForm({ className = "" }: Props) {
   return (
     <Wrapper className={className}>
       <Title>Checkout</Title>
-      <Form>
-        <FormGroup>
-          <StyledSubtitle>Billing Details</StyledSubtitle>
-          <Fields>
-            <TextField label="Name" placeholder="Alexei Ward" id="name" />
-            <TextField
-              type="email"
-              label="Email Address"
-              placeholder="alexei@mail.com"
-              id="email"
+
+      <FormGroup>
+        <StyledSubtitle>Billing Details</StyledSubtitle>
+        <Fields>
+          <TextField label="Name" placeholder="Alexei Ward" id="name" />
+          <TextField
+            type="email"
+            label="Email Address"
+            placeholder="alexei@mail.com"
+            id="email"
+          />
+          <TextField
+            label="Phone Number"
+            placeholder="+1 202-555-0136"
+            id="phone"
+          />
+        </Fields>
+      </FormGroup>
+
+      <FormGroup>
+        <StyledSubtitle>Shipping Info</StyledSubtitle>
+        <Fields>
+          <EmailTextField
+            label="Address"
+            placeholder="1137 Williams Avenue"
+            id="address"
+          />
+          <TextField label="Zip Code" placeholder="10001" id="zip" />
+          <TextField label="City" placeholder="New York" id="city" />
+          <TextField label="Country" placeholder="United States" id="country" />
+        </Fields>
+      </FormGroup>
+
+      <FormGroup>
+        <StyledSubtitle>Payment Details</StyledSubtitle>
+        <Fields>
+          <FormLabel htmlFor="payment">Payment Method</FormLabel>
+          <RadioGroup>
+            <Radio id="emoney" label="e-Money" name="payment" value="emoney" />
+            <Radio
+              id="cash"
+              label="Cash on Delivery"
+              name="payment"
+              value="cash"
             />
-            <TextField
-              label="Phone Number"
-              placeholder="+1 202-555-0136"
-              id="phone"
-            />
-          </Fields>
-        </FormGroup>
-        <FormGroup>
-          <StyledSubtitle>Shipping Info</StyledSubtitle>
-          <Fields>
-            <EmailTextField
-              label="Address"
-              placeholder="1137 Williams Avenue"
-              id="address"
-            />
-            <TextField label="Zip Code" placeholder="10001" id="zip" />
-            <TextField label="City" placeholder="New York" id="city" />
-            <TextField
-              label="Country"
-              placeholder="United States"
-              id="country"
-            />
-          </Fields>
-        </FormGroup>
-        <FormGroup>
-          <StyledSubtitle>Payment Details</StyledSubtitle>
-          <Fields>
-            <FormLabel htmlFor="payment">Payment Method</FormLabel>
-            <RadioGroup>
-              <Radio
-                id="emoney"
-                label="e-Money"
-                name="payment"
-                value="emoney"
-              />
-              <Radio
-                id="cash"
-                label="Cash on Delivery"
-                name="payment"
-                value="cash"
-              />
-            </RadioGroup>
-            <TextField
-              label="e-Money Number"
-              placeholder="238521993"
-              id="emoneyNumber"
-            />
-            <TextField label="e-Money PIN" placeholder="6891" id="emoneyPin" />
-          </Fields>
-        </FormGroup>
-      </Form>
+          </RadioGroup>
+          <TextField
+            label="e-Money Number"
+            placeholder="238521993"
+            id="emoneyNumber"
+          />
+          <TextField label="e-Money PIN" placeholder="6891" id="emoneyPin" />
+        </Fields>
+      </FormGroup>
     </Wrapper>
   );
 }
@@ -95,16 +87,13 @@ const Title = styled(H3)`
   }
 `;
 
-const Form = styled.form`
-  margin-top: 40px;
-`;
-
 const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
 
   &:first-of-type {
+    margin-top: 40px;
     margin-bottom: 52px;
   }
 
@@ -114,6 +103,7 @@ const FormGroup = styled.div`
 
   @media (max-width: 550px) {
     &:first-of-type {
+      margin-top: 32px;
       margin-bottom: 32px;
     }
 

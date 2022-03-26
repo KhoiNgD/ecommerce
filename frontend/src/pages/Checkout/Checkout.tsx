@@ -1,17 +1,42 @@
 import { CheckoutForm, CheckoutSummary } from "components/Checkout";
 import { Container } from "components/Container";
 import { NavigateBack } from "components/NavigateBack/NavigateBack";
+import { useForm } from "react-hook-form";
 import styled from "styled-components";
 
+type FormData = {
+  // Billing Details
+  name: string;
+  email: string;
+  phone: string;
+  // Shipping Info
+  address: string;
+  zipCode: string;
+  city: string;
+  country: string;
+  // Payment Details
+  paymentMethod: string;
+  eMoneyNumber?: string;
+  eMoneyPin?: string;
+};
+
 function Checkout() {
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
+  const onSubmit = handleSubmit((data) => console.log(data));
+
   return (
     <Wrapper>
       <Container>
         <GoBack />
-        <Main>
-          <Form />
+        <Form onSubmit={onSubmit}>
+          <StyledCheckoutForm />
           <Summary />
-        </Main>
+        </Form>
       </Container>
     </Wrapper>
   );
@@ -41,17 +66,17 @@ const Wrapper = styled.div`
   }
 `;
 
-const Form = styled(CheckoutForm)`
+const StyledCheckoutForm = styled(CheckoutForm)`
   flex: 1;
 `;
 
 const Summary = styled(CheckoutSummary)``;
 
-const Main = styled.main`
+const Form = styled.form`
   display: flex;
   gap: 30px;
 
-  & ${Form}, & ${Summary} {
+  & ${StyledCheckoutForm}, & ${Summary} {
     background: hsl(var(--primary-white));
     border-radius: var(--border-radius);
     overflow: hidden;
