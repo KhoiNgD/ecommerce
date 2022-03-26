@@ -72,6 +72,11 @@ const StyledCheckoutForm = styled(CheckoutForm)`
 const Summary = styled(CheckoutSummary)`
   min-width: 350px;
   align-self: flex-start;
+
+  @media (max-width: 1100px) {
+    min-width: revert;
+    align-self: revert;
+  }
 `;
 
 const Form = styled.form`
