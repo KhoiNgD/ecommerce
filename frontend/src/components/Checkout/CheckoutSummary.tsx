@@ -8,7 +8,7 @@ function CheckoutSummary({ className = "" }: Props) {
     <Wrapper className={className}>
       <Title>Summary</Title>
       <Button type="submit" variant="fill">
-        Proceed & Pay
+        Continue & Pay
       </Button>
     </Wrapper>
   );

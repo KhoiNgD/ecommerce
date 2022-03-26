@@ -21,7 +21,9 @@ type FormData = {
 };
 
 function Checkout() {
-  const methods = useForm<FormData>();
+  const methods = useForm<FormData>({
+    defaultValues: { paymentMethod: "emoney" },
+  });
   const onSubmit = methods.handleSubmit((data) => console.log(data));
 
   return (

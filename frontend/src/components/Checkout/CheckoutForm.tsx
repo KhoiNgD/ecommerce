@@ -2,10 +2,15 @@ import { FormLabel } from "components/FormLabel";
 import { Radio } from "components/Radio";
 import { TextField } from "components/TextField";
 import { H3, SubTitle } from "components/Typographies";
+import { useWatch } from "react-hook-form";
 import styled from "styled-components";
 
 type Props = { className?: string };
 function CheckoutForm({ className = "" }: Props) {
+  const paymentMethod = useWatch({
+    name: "paymentMethod",
+  });
+
   return (
     <Wrapper className={className}>
       <Title>Checkout</Title>
@@ -60,12 +65,20 @@ function CheckoutForm({ className = "" }: Props) {
               value="cash"
             />
           </RadioGroup>
-          <TextField
-            label="e-Money Number"
-            placeholder="238521993"
-            id="emoneyNumber"
-          />
-          <TextField label="e-Money PIN" placeholder="6891" id="emoneyPin" />
+          {paymentMethod === "emoney" && (
+            <>
+              <TextField
+                label="e-Money Number"
+                placeholder="238521993"
+                id="emoneyNumber"
+              />
+              <TextField
+                label="e-Money PIN"
+                placeholder="6891"
+                id="emoneyPin"
+              />
+            </>
+          )}
         </Fields>
       </FormGroup>
     </Wrapper>
