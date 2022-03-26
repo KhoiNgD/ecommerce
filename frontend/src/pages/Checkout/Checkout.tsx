@@ -1,7 +1,7 @@
 import { CheckoutForm, CheckoutSummary } from "components/Checkout";
 import { Container } from "components/Container";
 import { NavigateBack } from "components/NavigateBack/NavigateBack";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import styled from "styled-components";
 
 type FormData = {
@@ -21,22 +21,19 @@ type FormData = {
 };
 
 function Checkout() {
-  const {
-    register,
-    setValue,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>();
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const methods = useForm<FormData>();
+  const onSubmit = methods.handleSubmit((data) => console.log(data));
 
   return (
     <Wrapper>
       <Container>
         <GoBack />
-        <Form onSubmit={onSubmit}>
-          <StyledCheckoutForm />
-          <Summary />
-        </Form>
+        <FormProvider {...methods}>
+          <Form onSubmit={onSubmit}>
+            <StyledCheckoutForm />
+            <Summary />
+          </Form>
+        </FormProvider>
       </Container>
     </Wrapper>
   );
