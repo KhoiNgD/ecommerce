@@ -1,4 +1,5 @@
 import { FormLabel } from "components/FormLabel";
+import { useFormContext } from "react-hook-form";
 import styled from "styled-components";
 
 type Props = {
@@ -15,10 +16,12 @@ function TextField({
   type = "text",
   className = "",
 }: Props) {
+  const { register } = useFormContext();
+
   return (
     <Wrapper className={className}>
       <FormLabel htmlFor={id}>{label}</FormLabel>
-      <Input id={id} placeholder={placeholder} type={type} />
+      <Input id={id} placeholder={placeholder} type={type} {...register(id)} />
     </Wrapper>
   );
 }

@@ -1,14 +1,16 @@
 import { FormLabel } from "components/FormLabel";
-import React from "react";
+import { useFormContext } from "react-hook-form";
 import styled from "styled-components";
 
 // Radio button style guide: https://moderncss.dev/pure-css-custom-styled-radio-buttons/
 
 type Props = { id: string; label: string; name: string; value: string };
 function Radio({ id, label, ...props }: Props) {
+  const { register } = useFormContext();
+
   return (
     <Wrapper isChecked={false}>
-      <Input type="radio" id={id} {...props} />
+      <Input type="radio" id={id} {...props} {...register(id)} />
       <FormLabel htmlFor={id}>{label}</FormLabel>
     </Wrapper>
   );

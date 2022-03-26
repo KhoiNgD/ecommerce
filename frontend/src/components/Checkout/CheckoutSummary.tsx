@@ -1,3 +1,4 @@
+import { Button } from "components/Button/Button";
 import { H6 } from "components/Typographies";
 import styled from "styled-components";
 
@@ -6,6 +7,9 @@ function CheckoutSummary({ className = "" }: Props) {
   return (
     <Wrapper className={className}>
       <Title>Summary</Title>
+      <Button type="submit" variant="fill">
+        Proceed & Pay
+      </Button>
     </Wrapper>
   );
 }

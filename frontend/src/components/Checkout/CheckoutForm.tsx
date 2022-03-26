@@ -36,7 +36,7 @@ function CheckoutForm({ className = "" }: Props) {
             placeholder="1137 Williams Avenue"
             id="address"
           />
-          <TextField label="Zip Code" placeholder="10001" id="zip" />
+          <TextField label="Zip Code" placeholder="10001" id="zipCode" />
           <TextField label="City" placeholder="New York" id="city" />
           <TextField label="Country" placeholder="United States" id="country" />
         </Fields>
@@ -45,13 +45,18 @@ function CheckoutForm({ className = "" }: Props) {
       <FormGroup>
         <StyledSubtitle>Payment Details</StyledSubtitle>
         <Fields>
-          <FormLabel htmlFor="payment">Payment Method</FormLabel>
+          <FormLabel htmlFor="paymentMethod">Payment Method</FormLabel>
           <RadioGroup>
-            <Radio id="emoney" label="e-Money" name="payment" value="emoney" />
+            <Radio
+              id="emoney"
+              label="e-Money"
+              name="paymentMethod"
+              value="emoney"
+            />
             <Radio
               id="cash"
               label="Cash on Delivery"
-              name="payment"
+              name="paymentMethod"
               value="cash"
             />
           </RadioGroup>

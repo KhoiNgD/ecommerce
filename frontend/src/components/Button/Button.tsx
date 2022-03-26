@@ -7,6 +7,7 @@ interface Props {
   variant: ButtonVariant;
   children: React.ReactNode;
   className?: string;
+  type?: "button" | "reset" | "submit" | undefined;
 }
 
 function Button({ variant = "normal", ...props }: Props) {
