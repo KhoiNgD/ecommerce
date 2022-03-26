@@ -69,7 +69,10 @@ const StyledCheckoutForm = styled(CheckoutForm)`
   flex: 1;
 `;
 
-const Summary = styled(CheckoutSummary)``;
+const Summary = styled(CheckoutSummary)`
+  min-width: 350px;
+  align-self: flex-start;
+`;
 
 const Form = styled.form`
   display: flex;
