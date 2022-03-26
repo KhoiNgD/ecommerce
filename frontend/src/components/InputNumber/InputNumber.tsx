@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Sign from "./Sign";
 
-type Props = { minValue?: number; maxValue: number };
-function InputNumber({ minValue = 0, maxValue }: Props) {
+type Props = { small?: boolean; minValue?: number; maxValue: number };
+function InputNumber({ small = false, minValue = 0, maxValue }: Props) {
   const [value, setValue] = React.useState(0);
 
   function handleMinus() {
@@ -32,9 +32,18 @@ function InputNumber({ minValue = 0, maxValue }: Props) {
 
   return (
     <Wrapper>
-      <Sign handleClick={handleMinus}>-</Sign>
-      <Input value={value} onChange={handleChange} type="number" />
-      <Sign handleClick={handlePlus}>+</Sign>
+      <Sign isSmall={small} handleClick={handleMinus}>
+        -
+      </Sign>
+      <Input
+        isSmall={small}
+        value={value}
+        onChange={handleChange}
+        type="number"
+      />
+      <Sign isSmall={small} handleClick={handlePlus}>
+        +
+      </Sign>
     </Wrapper>
   );
 }
@@ -44,14 +53,14 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Input = styled.input`
-  width: 7ch;
+const Input = styled.input<{ isSmall: boolean }>`
+  width: ${(props) => (props.isSmall ? "5ch" : "7ch")};
   background: #f1f1f1;
   text-align: center;
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 1px;
-  padding: 15px;
+  padding: ${(props) => (props.isSmall ? "7px" : "15px")};
   border: none;
   outline: none;
 

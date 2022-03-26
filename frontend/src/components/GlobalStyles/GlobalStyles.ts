@@ -77,6 +77,11 @@ p, h1, h2, h3, h4, h5, h6 {
   10. Style scrollbar
 */
 html {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+/* html {
   --scrollbar-background: hsl(210deg, 15%, 6.25%);
   --scrollbar-text: hsl(210deg, 10%, 90%);
   --scrollbar-gray-300: hsl(210deg, 10%, 40%);
@@ -98,7 +103,7 @@ html {
   ::-webkit-scrollbar-thumb:hover {
     background-color: var(--scrollbar-gray-500);
   }
-}
+} */
 `;
 
 export default GlobalStyles;
