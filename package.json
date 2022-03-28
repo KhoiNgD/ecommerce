@@ -1,0 +1,21 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run build --prefix frontend && npm run watch --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KhoiNgD/ecommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KhoiNgD/ecommerce/issues"
+  },
+  "homepage": "https://github.com/KhoiNgD/ecommerce#readme"
+}
