@@ -1,0 +1,15 @@
+{
+  "short_name": "Audiophile Ecommerce",
+  "name": "Frontend Mentor Audiophile Ecommerce Application",
+  "icons": [
+    {
+      "src": "assets/favicon-32x32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
