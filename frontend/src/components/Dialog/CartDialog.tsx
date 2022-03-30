@@ -30,12 +30,20 @@ function CartDialog(props: Props) {
           </TopWrapper>
 
           <Products>
-            <ProductSummary quantity={<InputNumber small maxValue={3} />} />
-            <ProductSummary quantity={<InputNumber small maxValue={3} />} />
-            <ProductSummary quantity={<InputNumber small maxValue={3} />} />
+            <li>
+              <ProductSummary quantity={<InputNumber small maxValue={3} />} />
+            </li>
+            <li>
+              <ProductSummary quantity={<InputNumber small maxValue={3} />} />
+            </li>
+            <li>
+              <ProductSummary quantity={<InputNumber small maxValue={3} />} />
+            </li>
           </Products>
 
-          <PriceDetail title="TOTAL" price="5,396" />
+          <dl>
+            <PriceDetail title="TOTAL" price="5,396" />
+          </dl>
 
           <StyledButton onClick={navigateToCheckout} variant="fill">
             CHECKOUT
@@ -82,7 +90,8 @@ const Remove = styled.span`
   cursor: pointer;
 `;
 
-const Products = styled.div`
+const Products = styled.ul`
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 24px;

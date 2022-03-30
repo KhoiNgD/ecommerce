@@ -14,9 +14,15 @@ function CheckoutSummary({ className = "" }: Props) {
     <Wrapper className={className}>
       <H6>Summary</H6>
       <Products>
-        <ProductSummary quantity={<Quantity />} />
-        <ProductSummary quantity={<Quantity />} />
-        <ProductSummary quantity={<Quantity />} />
+        <li>
+          <ProductSummary quantity={<Quantity />} />
+        </li>
+        <li>
+          <ProductSummary quantity={<Quantity />} />
+        </li>
+        <li>
+          <ProductSummary quantity={<Quantity />} />
+        </li>
       </Products>
       <TotalSummary>
         <PriceDetail title="TOTAL" price="5,396" />
@@ -44,7 +50,8 @@ const StyledButton = styled(Button)`
   width: 100%;
 `;
 
-const Products = styled.div`
+const Products = styled.ul`
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -58,7 +65,7 @@ const ProductQuantity = styled.div`
   color: hsl(var(--primary-dark) / 0.5);
 `;
 
-const TotalSummary = styled.div`
+const TotalSummary = styled.dl`
   display: flex;
   flex-direction: column;
   gap: 8px;
