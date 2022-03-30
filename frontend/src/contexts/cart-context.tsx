@@ -1,10 +1,24 @@
 import React from "react";
+import { Action, CartContextType, State } from "./cart-context.types";
 
-const CartContext = React.createContext();
+const initialState = { products: [], total: 0 };
+
+const CartContext = React.createContext<CartContextType>([
+  initialState,
+  (): void => {
+    throw new Error("setContext function must be overriden");
+  },
+]);
+
+function cartReducer(state: State, action: Action): State {
+  return { products: [], total: 0 };
+}
 
 type Props = { children: React.ReactNode };
 function CartProvider({ children }: Props) {
-  return <CartContext.Provider value="" children={children} />;
+  const [state, dispatch] = React.useReducer(cartReducer, initialState);
+  const value: CartContextType = [state, dispatch];
+  return <CartContext.Provider value={value} children={children} />;
 }
 
 function useCart() {
