@@ -1,15 +1,15 @@
-export interface ProductInclude {
+export interface IProductInclude {
   quantity: number;
   item: string;
 }
 
-export interface ProductImageType {
+export interface IProductImageType {
   mobile: string;
   tablet: string;
   desktop: string;
 }
 
-export interface ProductOthers {
+export interface IProductOthers {
   slug: string;
   name: string;
   image: {
@@ -19,22 +19,22 @@ export interface ProductOthers {
   };
 }
 
-export interface Product {
+export interface IProduct {
   id: number;
   slug: string;
   name: string;
-  image: ProductImageType;
+  image: IProductImageType;
   category: string;
-  categoryImage: ProductImageType;
+  categoryImage: IProductImageType;
   new: boolean;
   price: number;
   description: string;
   features: string;
-  includes: ProductInclude[];
+  includes: IProductInclude[];
   gallery: {
-    first: ProductImageType;
-    second: ProductImageType;
-    third: ProductImageType;
+    first: IProductImageType;
+    second: IProductImageType;
+    third: IProductImageType;
   };
-  others: ProductOthers[];
+  others: IProductOthers[];
 }
