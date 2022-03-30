@@ -13,11 +13,11 @@ function CheckoutSummary({ className = "" }: Props) {
   return (
     <Wrapper className={className}>
       <H6>Summary</H6>
-      <Products>
+      <ProductList>
         <ProductSummaryItem quantity={<Quantity />} />
         <ProductSummaryItem quantity={<Quantity />} />
         <ProductSummaryItem quantity={<Quantity />} />
-      </Products>
+      </ProductList>
       <TotalSummary>
         <PriceDetail title="TOTAL" price="5,396" />
         <PriceDetail title="SHIPPING" price="50" />
@@ -44,7 +44,7 @@ const StyledButton = styled(Button)`
   width: 100%;
 `;
 
-const Products = styled.ul`
+const ProductList = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;

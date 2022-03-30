@@ -29,11 +29,11 @@ function CartDialog(props: Props) {
             <Remove>Remove All</Remove>
           </TopWrapper>
 
-          <Products>
+          <ProductList>
             <ProductSummaryItem quantity={<InputNumber small maxValue={3} />} />
             <ProductSummaryItem quantity={<InputNumber small maxValue={3} />} />
             <ProductSummaryItem quantity={<InputNumber small maxValue={3} />} />
-          </Products>
+          </ProductList>
 
           <dl>
             <PriceDetail title="TOTAL" price="5,396" />
@@ -84,7 +84,7 @@ const Remove = styled.span`
   cursor: pointer;
 `;
 
-const Products = styled.ul`
+const ProductList = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
