@@ -10,7 +10,6 @@ function httpGetAllProducts(req, res) {
 }
 
 function httpGetProductsByCategory(req, res) {
-  console.log(123);
   const { category } = req.params;
   const products = getProductsByCategory(category);
 

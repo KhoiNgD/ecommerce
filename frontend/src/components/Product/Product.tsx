@@ -1,29 +1,29 @@
 import { Button } from "components/Button/Button";
 import { ResponsivePicture } from "components/ResponsivePicture";
 import { Body, H2, Overline } from "components/Typographies";
+import { IProduct } from "helpers/types";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-function Product() {
+type Props = { product: IProduct };
+function Product({ product }: Props) {
   return (
     <Wrapper>
       <PictureWrapper>
         <ResponsivePicture
-          mobileSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg`}
-          tabletSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg`}
-          desktopSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg`}
-          alt="Product xx99 mark two headphones"
+          mobileSrc={`${process.env.PUBLIC_URL}${product.image.mobile.slice(1)}`}
+          tabletSrc={`${process.env.PUBLIC_URL}${product.image.tablet.slice(1)}`}
+          desktopSrc={`${process.env.PUBLIC_URL}${product.image.desktop.slice(1)}`}
+          alt={product.name}
         />
       </PictureWrapper>
       <ProductInformation>
-        <StyledOverline>New Product</StyledOverline>
-        <H2>XX99 Mark II Headphones</H2>
-        <StyledBody>
-          The new XX99 Mark II headphones is the pinnacle of pristine audio. It
-          redefines your premium headphone experience by reproducing the
-          balanced depth and precision of studio-quality sound.
-        </StyledBody>
-        <NavLink to="xx99-mark-two-headphones">
+        <StyledOverline>{product.new ? "New Product" : ""}</StyledOverline>
+        <H2>{product.name}</H2>
+        <Description>
+          {product.description}
+        </Description>
+        <NavLink to={product.slug}>
           <Button variant="fill">See Product</Button>
         </NavLink>
       </ProductInformation>
@@ -72,7 +72,7 @@ const StyledOverline = styled(Overline)`
   }
 `;
 
-const StyledBody = styled(Body)`
+const Description = styled(Body)`
   color: hsl(var(--primary-dark) / 0.5);
   margin-top: 32px;
   margin-bottom: 40px;
