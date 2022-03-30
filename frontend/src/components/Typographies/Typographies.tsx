@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const H1 = styled.h1`
   font-size: 5.6rem;
@@ -44,7 +44,7 @@ export const Overline = styled.div`
   text-transform: uppercase;
   color: hsl(--primary-color);
 `;
-export const SubTitle = styled.div`
+export const SubTitle = css`
   font-weight: 700;
   font-size: 1.3rem;
   line-height: 2.5rem;

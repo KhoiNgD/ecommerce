@@ -15,8 +15,8 @@ function CheckoutForm({ className = "" }: Props) {
     <Wrapper className={className}>
       <Title>Checkout</Title>
 
-      <FormGroup>
-        <StyledSubtitle>Billing Details</StyledSubtitle>
+      <Fieldset>
+        <Legend>Billing Details</Legend>
         <Fields>
           <TextField label="Name" placeholder="Alexei Ward" id="name" />
           <TextField
@@ -31,10 +31,10 @@ function CheckoutForm({ className = "" }: Props) {
             id="phone"
           />
         </Fields>
-      </FormGroup>
+      </Fieldset>
 
-      <FormGroup>
-        <StyledSubtitle>Shipping Info</StyledSubtitle>
+      <Fieldset>
+        <Legend>Shipping Info</Legend>
         <Fields>
           <EmailTextField
             label="Address"
@@ -45,10 +45,10 @@ function CheckoutForm({ className = "" }: Props) {
           <TextField label="City" placeholder="New York" id="city" />
           <TextField label="Country" placeholder="United States" id="country" />
         </Fields>
-      </FormGroup>
+      </Fieldset>
 
-      <FormGroup>
-        <StyledSubtitle>Payment Details</StyledSubtitle>
+      <Fieldset>
+        <Legend>Payment Details</Legend>
         <Fields>
           <FormLabel htmlFor="paymentMethod">Payment Method</FormLabel>
           <RadioGroup>
@@ -80,12 +80,12 @@ function CheckoutForm({ className = "" }: Props) {
             </>
           )}
         </Fields>
-      </FormGroup>
+      </Fieldset>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding: 48px;
 
   @media (max-width: 1100px) {
@@ -105,7 +105,9 @@ const Title = styled(H3)`
   }
 `;
 
-const FormGroup = styled.div`
+const Fieldset = styled.fieldset`
+  outline: none;
+  border: none;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -131,7 +133,8 @@ const FormGroup = styled.div`
   }
 `;
 
-const StyledSubtitle = styled(SubTitle)`
+const Legend = styled.legend`
+  ${SubTitle}
   color: hsl(var(--primary-color));
 `;
 

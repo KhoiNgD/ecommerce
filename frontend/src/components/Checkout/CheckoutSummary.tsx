@@ -36,7 +36,7 @@ function CheckoutSummary({ className = "" }: Props) {
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding: 32px;
 `;
 
