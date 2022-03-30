@@ -1,17 +1,22 @@
 import { useQuery } from "react-query";
-import { Product } from "helpers/types";
+import { IProduct } from "helpers/types";
 import apiClient from "utils/apiClient";
 
 function useProducts(category: string) {
-  const { data: products } = useQuery<Product[]>("products", async function () {
-    return await apiClient.get(`/products/${category}`);
-  });
+  const { data: products } = useQuery<IProduct[]>(
+    ["products", category],
+    async function () {
+      const res = await apiClient.get(`/products/${category}`);
+      return res.data;
+    }
+  );
   return products;
 }
 
 function useProduct(category: string, productName: string) {
-  const { data: product } = useQuery<Product>("product", async function () {
-    return await apiClient.get(`/products/${category}/${productName}`);
+  const { data: product } = useQuery<IProduct>("product", async function () {
+    const res = await apiClient.get(`/products/${category}/${productName}`);
+    return res.data;
   });
   return product;
 }
