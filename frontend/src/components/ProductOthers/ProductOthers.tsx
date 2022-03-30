@@ -17,11 +17,12 @@ function ProductOthers({ others }: Props) {
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.aside`
   text-align: center;
 `;
 
-const OthersWrapper = styled.div`
+const OthersWrapper = styled.ul`
+  list-style: none;
   margin-top: 64px;
   display: flex;
   gap: 30px;
