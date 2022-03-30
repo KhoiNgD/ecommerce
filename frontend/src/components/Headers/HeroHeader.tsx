@@ -1,12 +1,18 @@
 import { Button } from "components/Button/Button";
 import { Container } from "components/Container";
 import { Body, H1, Overline } from "components/Typographies";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Border } from "./Border";
 import { Header } from "./Header";
 
 function HeroHeader() {
+  const navigate = useNavigate();
+
+  function navigateToProductDetail() {
+    navigate("/category/headphones/xx99-mark-two-headphones");
+  }
+
   return (
     <Wrapper>
       <Picture>
@@ -37,9 +43,9 @@ function HeroHeader() {
             </StyledBody>
           </HeroTextBox>
 
-          <NavLink to="/category/headphones/xx99-mark-two-headphones">
-            <Button variant="fill">See Product</Button>
-          </NavLink>
+          <Button onClick={navigateToProductDetail} variant="fill">
+            See Product
+          </Button>
         </HeroContent>
       </StyledContainer>
     </Wrapper>

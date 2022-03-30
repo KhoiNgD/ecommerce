@@ -4,9 +4,15 @@ import { Body, H1 } from "components/Typographies";
 import { ReactComponent as PatternCircle } from "assets/pattern-circles.svg";
 import React from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function PrimaryProduct() {
+  const navigate = useNavigate();
+
+  function navigateToProductDetail() {
+    navigate("/category/speakers/zx9-speaker");
+  }
+
   return (
     <Wrapper>
       <PictureWrapper>
@@ -27,9 +33,10 @@ function PrimaryProduct() {
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </StyledBody>
-        <NavLink to="/category/speakers/zx9-speaker">
-          <StyledButton>See Product</StyledButton>
-        </NavLink>
+
+        <StyledButton onClick={navigateToProductDetail}>
+          See Product
+        </StyledButton>
       </Description>
     </Wrapper>
   );
@@ -137,7 +144,10 @@ const StyledBody = styled(Body)`
   }
 `;
 
-type FillButtonProps = { children: React.ReactNode };
+type FillButtonProps = {
+  children: React.ReactNode;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+};
 function FillButton(props: FillButtonProps) {
   return <Button variant="fill" {...props} />;
 }

@@ -5,7 +5,7 @@ import { InputNumber } from "components/InputNumber";
 import { PriceDetail } from "components/PriceDetail";
 import { ProductSummary } from "components/ProductSummary";
 import { H6 } from "components/Typographies";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Dialog } from "./Dialog";
 
@@ -14,6 +14,12 @@ type Props = {
   onDismiss: () => void;
 };
 function CartDialog(props: Props) {
+  const navigate = useNavigate();
+
+  function navigateToCheckout() {
+    navigate("/checkout");
+  }
+
   return (
     <StyledDialog {...props}>
       <Container>
@@ -31,9 +37,9 @@ function CartDialog(props: Props) {
 
           <PriceDetail title="TOTAL" price="5,396" />
 
-          <NavLink to="/checkout">
-            <StyledButton variant="fill">CHECKOUT</StyledButton>
-          </NavLink>
+          <StyledButton onClick={navigateToCheckout} variant="fill">
+            CHECKOUT
+          </StyledButton>
         </StyledDialogContent>
       </Container>
     </StyledDialog>

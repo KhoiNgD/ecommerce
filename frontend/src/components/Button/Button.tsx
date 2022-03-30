@@ -8,6 +8,7 @@ interface Props {
   children: React.ReactNode;
   className?: string;
   type?: "button" | "reset" | "submit" | undefined;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 function Button({ variant = "normal", ...props }: Props) {
