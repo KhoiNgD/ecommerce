@@ -1,6 +1,6 @@
 import { Button } from "components/Button/Button";
 import { PriceDetail } from "components/PriceDetail";
-import { ProductSummary } from "components/ProductSummary";
+import { ProductSummaryItem } from "components/ProductSummaryItem";
 import { Body, H6 } from "components/Typographies";
 import styled from "styled-components";
 
@@ -14,15 +14,9 @@ function CheckoutSummary({ className = "" }: Props) {
     <Wrapper className={className}>
       <H6>Summary</H6>
       <Products>
-        <li>
-          <ProductSummary quantity={<Quantity />} />
-        </li>
-        <li>
-          <ProductSummary quantity={<Quantity />} />
-        </li>
-        <li>
-          <ProductSummary quantity={<Quantity />} />
-        </li>
+        <ProductSummaryItem quantity={<Quantity />} />
+        <ProductSummaryItem quantity={<Quantity />} />
+        <ProductSummaryItem quantity={<Quantity />} />
       </Products>
       <TotalSummary>
         <PriceDetail title="TOTAL" price="5,396" />

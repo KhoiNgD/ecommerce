@@ -3,7 +3,7 @@ import { Button } from "components/Button/Button";
 import { Container } from "components/Container";
 import { InputNumber } from "components/InputNumber";
 import { PriceDetail } from "components/PriceDetail";
-import { ProductSummary } from "components/ProductSummary";
+import { ProductSummaryItem } from "components/ProductSummaryItem";
 import { H6 } from "components/Typographies";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -30,15 +30,9 @@ function CartDialog(props: Props) {
           </TopWrapper>
 
           <Products>
-            <li>
-              <ProductSummary quantity={<InputNumber small maxValue={3} />} />
-            </li>
-            <li>
-              <ProductSummary quantity={<InputNumber small maxValue={3} />} />
-            </li>
-            <li>
-              <ProductSummary quantity={<InputNumber small maxValue={3} />} />
-            </li>
+            <ProductSummaryItem quantity={<InputNumber small maxValue={3} />} />
+            <ProductSummaryItem quantity={<InputNumber small maxValue={3} />} />
+            <ProductSummaryItem quantity={<InputNumber small maxValue={3} />} />
           </Products>
 
           <dl>

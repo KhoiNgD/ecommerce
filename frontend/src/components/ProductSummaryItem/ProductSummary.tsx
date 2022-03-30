@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 type Props = { quantity: React.ReactNode };
-function ProductSummary({ quantity }: Props) {
+function ProductSummaryItem({ quantity }: Props) {
   return (
     <Wrapper>
       <ImageWrapper>
@@ -21,7 +21,7 @@ function ProductSummary({ quantity }: Props) {
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.li`
   width: 100%;
   display: flex;
   align-items: center;
@@ -63,4 +63,4 @@ const Price = styled.div`
   color: hsl(var(--primary-dark) / 0.5);
 `;
 
-export { ProductSummary };
+export { ProductSummaryItem };
