@@ -6,13 +6,16 @@ function TertiaryProduct() {
   return (
     <Wrapper>
       <StyledResponsivePicture
-        mobileSrc="./assets/home/mobile/image-earphones-yx1.jpg"
-        tabletSrc="./assets/home/tablet/image-earphones-yx1.jpg"
-        desktopSrc="./assets/home/desktop/image-earphones-yx1.jpg"
+        mobileSrc={`${process.env.PUBLIC_URL}/assets/home/mobile/image-earphones-yx1.jpg`}
+        tabletSrc={`${process.env.PUBLIC_URL}/assets/home/tablet/image-earphones-yx1.jpg`}
+        desktopSrc={`${process.env.PUBLIC_URL}/assets/home/desktop/image-earphones-yx1.jpg`}
         alt="tertiary product - earphones yx1"
       />
       <ActionWrapper>
-        <StyledProductAction product="yx1 earphones" />
+        <StyledProductAction
+          product="yx1 earphones"
+          link="/category/earphones/yx-1"
+        />
       </ActionWrapper>
     </Wrapper>
   );

@@ -1,6 +1,7 @@
 import { Button } from "components/Button/Button";
 import { Container } from "components/Container";
 import { Body, H1, Overline } from "components/Typographies";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Border } from "./Border";
 import { Header } from "./Header";
@@ -11,14 +12,14 @@ function HeroHeader() {
       <Picture>
         <source
           media="(max-width: 550px)"
-          srcSet="./assets/home/mobile/image-header.jpg"
+          srcSet={`${process.env.PUBLIC_URL}/assets/home/mobile/image-header.jpg`}
         />
         <source
           media="(max-width: 1110px)"
-          srcSet="./assets/home/tablet/image-header.jpg"
+          srcSet={`${process.env.PUBLIC_URL}/assets/home/tablet/image-header.jpg`}
         />
         <img
-          src="./assets/home/desktop/image-hero.jpg"
+          src={`${process.env.PUBLIC_URL}/assets/home/desktop/image-hero.jpg`}
           alt="new product in headphone category"
         />
       </Picture>
@@ -29,14 +30,16 @@ function HeroHeader() {
         <HeroContent>
           <HeroTextBox>
             <StyledOverline>New Product</StyledOverline>
-            <StyledH1>XX99 Mark II Headerphones</StyledH1>
+            <StyledH1>XX99 Mark II Headphones</StyledH1>
             <StyledBody>
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </StyledBody>
           </HeroTextBox>
 
-          <Button variant="fill">See Product</Button>
+          <NavLink to="/category/headphones/xx99-mark-two-headphones">
+            <Button variant="fill">See Product</Button>
+          </NavLink>
         </HeroContent>
       </StyledContainer>
     </Wrapper>

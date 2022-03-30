@@ -6,12 +6,15 @@ function SecondaryProduct() {
   return (
     <Wrapper>
       <StyledResponsivePicture
-        mobileSrc="./assets/home/mobile/image-speaker-zx7.jpg"
-        tabletSrc="./assets/home/tablet/image-speaker-zx7.jpg"
-        desktopSrc="./assets/home/desktop/image-speaker-zx7.jpg"
+        mobileSrc={`${process.env.PUBLIC_URL}/assets/home/mobile/image-speaker-zx7.jpg`}
+        tabletSrc={`${process.env.PUBLIC_URL}/assets/home/tablet/image-speaker-zx7.jpg`}
+        desktopSrc={`${process.env.PUBLIC_URL}/assets/home/desktop/image-speaker-zx7.jpg`}
         alt="secondary product - speaker zx7"
       />
-      <StyledProductAction product="zx7 speaker" />
+      <StyledProductAction
+        product="zx7 speaker"
+        link="/category/speakers/zx7-speaker"
+      />
     </Wrapper>
   );
 }

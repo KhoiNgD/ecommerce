@@ -4,15 +4,16 @@ import { Body, H1 } from "components/Typographies";
 import { ReactComponent as PatternCircle } from "assets/pattern-circles.svg";
 import React from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 function PrimaryProduct() {
   return (
     <Wrapper>
       <PictureWrapper>
         <ResponsivePicture
-          mobileSrc="./assets/home/mobile/image-speaker-zx9.png"
-          tabletSrc="./assets/home/tablet/image-speaker-zx9.png"
-          desktopSrc="./assets/home/desktop/image-speaker-zx9.png"
+          mobileSrc={`${process.env.PUBLIC_URL}/assets/home/mobile/image-speaker-zx9.png`}
+          tabletSrc={`${process.env.PUBLIC_URL}/assets/home/tablet/image-speaker-zx9.png`}
+          desktopSrc={`${process.env.PUBLIC_URL}/assets/home/desktop/image-speaker-zx9.png`}
           alt="primary product - speaker zx9"
         />
         <PatternWrapper>
@@ -26,7 +27,9 @@ function PrimaryProduct() {
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </StyledBody>
-        <StyledButton>See Product</StyledButton>
+        <NavLink to="/category/speakers/zx9-speaker">
+          <StyledButton>See Product</StyledButton>
+        </NavLink>
       </Description>
     </Wrapper>
   );
