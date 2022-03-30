@@ -6,8 +6,12 @@ function useProducts(category: string) {
   const { data: products } = useQuery<IProduct[]>(
     ["products", category],
     async function () {
-      const res = await apiClient.get(`/products/${category}`);
-      return res.data;
+      try {
+        const res = await apiClient.get(`/products/${category}`);
+        return res.data;
+      } catch (error) {
+        throw new Error("Cannot fetch data");
+      }
     }
   );
   return products;
@@ -15,8 +19,12 @@ function useProducts(category: string) {
 
 function useProduct(category: string, productName: string) {
   const { data: product } = useQuery<IProduct>("product", async function () {
-    const res = await apiClient.get(`/products/${category}/${productName}`);
-    return res.data;
+    try {
+      const res = await apiClient.get(`/products/${category}/${productName}`);
+      return res.data;
+    } catch (error) {
+      throw new Error("Cannot fetch data");
+    }
   });
   return product;
 }

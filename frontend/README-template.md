@@ -106,7 +106,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 - [Center position](https://stackoverflow.com/questions/9998260/css-absolute-position-wont-work-with-margin-leftauto-margin-right-auto?rq=1) - This helped me knowing how to center a position absolute element relative to its parent. I really liked this pattern and will use it going forward.
 - [Access public path in /src](https://stackoverflow.com/questions/47196800/reactjs-and-images-in-public-folder) - This helped me understand to access public folder in components.
-- [Pure CSS custom styled radio buttons](https://moderncss.dev/pure-css-custom-styled-radio-buttons/) - This guide helped me style a radio button.
+- [Pure CSS custom styled radio buttons](https://moderncss.dev/pure-css-custom-styled-radio-buttons) - This guide helped me style a radio button.
+- [Stop react query from keep refetching](https://stackoverflow.com/questions/68570649/react-query-query-is-always-fetching)
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 **Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
