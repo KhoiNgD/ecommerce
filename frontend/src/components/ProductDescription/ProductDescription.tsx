@@ -1,39 +1,25 @@
 import { Body, H3 } from "components/Typographies";
+import { IProductInclude } from "helpers/types";
 import styled from "styled-components";
 
-function ProductDescription() {
-  const str =
-    "Featuring a genuine leather head strap and premium earcups, these headphones deliver superior comfort for those who like to enjoy endless listening. It includes intuitive controls designed for any situation. Whether you’re taking a business call or just in your own personal space, the auto on/off and pause features ensure that you’ll never miss a beat.\n\nThe advanced Active Noise Cancellation with built-in equalizer allow you to experience your audio world on your terms. It lets you enjoy your audio in peace, but quickly interact with your surroundings when you need to. Combined with Bluetooth 5. 0 compliant connectivity and 17 hour battery life, the XX99 Mark II headphones gives you superior sound, cutting-edge technology, and a modern design aesthetic.";
+type Props = { features: string; includes: IProductInclude[] };
+function ProductDescription({ features, includes }: Props) {
   return (
     <Wrapper>
       <Content>
         <H3>Features</H3>
-        <StyledBody>{str}</StyledBody>
+        <StyledBody>{features}</StyledBody>
       </Content>
 
       <Content>
         <H3>In the box</H3>
         <List>
-          <ListItem>
-            <ItemQuantity>1x</ItemQuantity>
-            <StyledBody>Headphone Unit</StyledBody>
-          </ListItem>
-          <ListItem>
-            <ItemQuantity>2x</ItemQuantity>
-            <StyledBody>Replacement Earcups</StyledBody>
-          </ListItem>
-          <ListItem>
-            <ItemQuantity>1x</ItemQuantity>
-            <StyledBody>User Manual</StyledBody>
-          </ListItem>
-          <ListItem>
-            <ItemQuantity>1x</ItemQuantity>
-            <StyledBody>3.5mm 5m Audio Cable</StyledBody>
-          </ListItem>
-          <ListItem>
-            <ItemQuantity>1x</ItemQuantity>
-            <StyledBody>Travel Bag</StyledBody>
-          </ListItem>
+          {includes.map(({ quantity, item }) => (
+            <ListItem key={item}>
+              <ItemQuantity>{quantity}x</ItemQuantity>
+              <StyledBody>{item}</StyledBody>
+            </ListItem>
+          ))}
         </List>
       </Content>
     </Wrapper>

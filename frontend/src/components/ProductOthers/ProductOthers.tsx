@@ -1,15 +1,17 @@
 import { H3 } from "components/Typographies";
+import { IProductOthers } from "helpers/types";
 import styled from "styled-components";
 import Other from "./Other";
 
-function ProductOthers() {
+type Props = { others: IProductOthers[] };
+function ProductOthers({ others }: Props) {
   return (
     <Wrapper>
       <H3>You may also like</H3>
       <OthersWrapper>
-        <Other />
-        <Other />
-        <Other />
+        {others.map((other) => (
+          <Other key={other.name} product={other} />
+        ))}
       </OthersWrapper>
     </Wrapper>
   );

@@ -1,25 +1,29 @@
 import { ResponsivePicture } from "components/ResponsivePicture";
+import { IProductGallery } from "helpers/types";
 import styled from "styled-components";
 
-function ProductGallery() {
+type Props = { gallery: IProductGallery };
+function ProductGallery({ gallery }: Props) {
+  const { first, second, third } = gallery;
+
   return (
     <Wrapper>
       <StyledPicture
-        mobileSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg`}
-        tabletSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/tablet/image-gallery-1.jpg`}
-        desktopSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg`}
+        mobileSrc={`${process.env.PUBLIC_URL}${first.mobile.slice(1)}`}
+        tabletSrc={`${process.env.PUBLIC_URL}${first.tablet.slice(1)}`}
+        desktopSrc={`${process.env.PUBLIC_URL}${first.desktop.slice(1)}`}
         alt="image gallery 1"
       />
       <StyledPicture
-        mobileSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg`}
-        tabletSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/tablet/image-gallery-2.jpg`}
-        desktopSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg`}
+        mobileSrc={`${process.env.PUBLIC_URL}${second.mobile.slice(1)}`}
+        tabletSrc={`${process.env.PUBLIC_URL}${second.tablet.slice(1)}`}
+        desktopSrc={`${process.env.PUBLIC_URL}${second.desktop.slice(1)}`}
         alt="image gallery 2"
       />
       <StyledPicture
-        mobileSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg`}
-        tabletSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/tablet/image-gallery-3.jpg`}
-        desktopSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg`}
+        mobileSrc={`${process.env.PUBLIC_URL}${third.mobile.slice(1)}`}
+        tabletSrc={`${process.env.PUBLIC_URL}${third.tablet.slice(1)}`}
+        desktopSrc={`${process.env.PUBLIC_URL}${third.desktop.slice(1)}`}
         alt="image gallery 3"
       />
     </Wrapper>

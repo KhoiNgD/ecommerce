@@ -2,29 +2,35 @@ import { Button } from "components/Button/Button";
 import { InputNumber } from "components/InputNumber";
 import { ResponsivePicture } from "components/ResponsivePicture";
 import { Body, H2, H6, Overline } from "components/Typographies";
+import { IProduct } from "helpers/types";
 import styled from "styled-components";
 
-function ProductDetail() {
+type Props = { product: IProduct };
+function ProductDetail({ product }: Props) {
+  const {
+    new: isNew,
+    name,
+    description,
+    price,
+    image: { mobile, tablet, desktop },
+  } = product;
+
   return (
     <Wrapper>
       <PictureWrapper>
         <ResponsivePicture
-          mobileSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/mobile/image-product.jpg`}
-          tabletSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/tablet/image-product.jpg`}
-          desktopSrc={`${process.env.PUBLIC_URL}/assets/product-xx99-mark-two-headphones/desktop/image-product.jpg`}
+          mobileSrc={`${process.env.PUBLIC_URL}${mobile.slice(1)}`}
+          tabletSrc={`${process.env.PUBLIC_URL}${tablet.slice(1)}`}
+          desktopSrc={`${process.env.PUBLIC_URL}${desktop.slice(1)}`}
           mediaMobile="(max-width: 768px)"
-          alt="Product xx99 mark two headphones"
+          alt={name}
         />
       </PictureWrapper>
       <ProductInformation>
-        <StyledOverline>New Product</StyledOverline>
-        <StyledH2>XX99 Mark II Headphones</StyledH2>
-        <StyledBody>
-          The new XX99 Mark II headphones is the pinnacle of pristine audio. It
-          redefines your premium headphone experience by reproducing the
-          balanced depth and precision of studio-quality sound.
-        </StyledBody>
-        <H6>$ 2,999</H6>
+        <StyledOverline>{isNew ? "New Product" : ""}</StyledOverline>
+        <StyledH2>{name}</StyledH2>
+        <StyledBody>{description}</StyledBody>
+        <H6>$ {price}</H6>
         <ActionWrapper>
           <InputNumber maxValue={3} />
           <Button variant="fill">Add To Cart</Button>

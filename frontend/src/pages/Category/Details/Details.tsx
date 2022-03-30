@@ -3,19 +3,31 @@ import { ProductDescription } from "components/ProductDescription";
 import { ProductDetail } from "components/ProductDetail";
 import { ProductGallery } from "components/ProductGallery";
 import { ProductOthers } from "components/ProductOthers";
+import { useProduct } from "hooks/products";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 function Details() {
+  const { category, productName } = useParams();
+  const product = useProduct(category!, productName!);
+
   return (
     <>
       <GoBack />
 
-      <Wrapper>
-        <ProductDetail />
-        <ProductDescription />
-        <ProductGallery />
-        <ProductOthers />
-      </Wrapper>
+      {product ? (
+        <Wrapper>
+          <ProductDetail product={product} />
+          <ProductDescription
+            features={product.features}
+            includes={product.includes}
+          />
+          <ProductGallery gallery={product.gallery} />
+          <ProductOthers others={product.others} />
+        </Wrapper>
+      ) : (
+        "Loading..."
+      )}
     </>
   );
 }

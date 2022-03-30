@@ -9,6 +9,12 @@ export interface IProductImageType {
   desktop: string;
 }
 
+export interface IProductGallery {
+  first: IProductImageType;
+  second: IProductImageType;
+  third: IProductImageType;
+}
+
 export interface IProductOthers {
   slug: string;
   name: string;
@@ -31,10 +37,6 @@ export interface IProduct {
   description: string;
   features: string;
   includes: IProductInclude[];
-  gallery: {
-    first: IProductImageType;
-    second: IProductImageType;
-    third: IProductImageType;
-  };
+  gallery: IProductGallery;
   others: IProductOthers[];
 }
