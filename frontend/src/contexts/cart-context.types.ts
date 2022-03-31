@@ -3,7 +3,7 @@ import React from "react";
 export type ProductState = {
   slug: string;
   name: string;
-  price: string;
+  price: number;
   quantity: number;
 };
 
@@ -12,6 +12,15 @@ export type State = {
   total: number;
 };
 
-export type Action = {};
+export enum ActionType {
+  ADD = "add",
+  REMOVE = "remove",
+  UPDATE = "update",
+}
+
+export type Action =
+  | { type: ActionType.ADD; payload: ProductState }
+  | { type: ActionType.REMOVE; payload: ProductState }
+  | { type: ActionType.UPDATE; payload: ProductState };
 
 export type CartContextType = [state: State, dispatch: React.Dispatch<Action>];
