@@ -8,7 +8,7 @@ import {
 
 const initialState = { products: [], total: 0 };
 
-const CartContext = React.createContext<CartContextType>({} as CartContextType);
+const CartContext = React.createContext<CartContextType | null>(null);
 
 function cartReducer(state: State, action: Action): State {
   switch (action.type) {

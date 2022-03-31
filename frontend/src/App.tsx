@@ -9,8 +9,8 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Headers />
       <CartProvider>
+        <Headers />
         <Outlet />
       </CartProvider>
       <Footer />
