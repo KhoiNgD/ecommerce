@@ -6,6 +6,7 @@ import { PriceDetail } from "components/PriceDetail";
 import { ProductSummaryItem } from "components/ProductSummaryItem";
 import { H6 } from "components/Typographies";
 import { useCart } from "contexts/cart-context";
+import { ActionType } from "contexts/cart-context.types";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Dialog } from "./Dialog";
@@ -16,10 +17,14 @@ type Props = {
 };
 function CartDialog(props: Props) {
   const navigate = useNavigate();
-  const { state } = useCart();
+  const { state, dispatch } = useCart();
 
   function navigateToCheckout() {
     navigate("/checkout");
+  }
+
+  function clearCart() {
+    dispatch({ type: ActionType.CLEAR });
   }
 
   return (
@@ -28,7 +33,7 @@ function CartDialog(props: Props) {
         <StyledDialogContent aria-label="Cart">
           <TopWrapper>
             <H6>Cart ({state.products.length})</H6>
-            <Remove>Remove All</Remove>
+            <Remove onClick={clearCart}>Remove All</Remove>
           </TopWrapper>
 
           <ProductList>
