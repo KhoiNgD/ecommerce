@@ -32,12 +32,17 @@ function CheckoutSummary({ className = "" }: Props) {
           <TotalSummary>
             <PriceDetail title="TOTAL" price={state.total} />
             <PriceDetail title="SHIPPING" price={50} />
-            <PriceDetail title="VAT (INCLUDED)" price={state.total * 0.2} />
+            <PriceDetail
+              title="VAT (INCLUDED)"
+              price={Math.round(state.total * 0.2)}
+            />
           </TotalSummary>
           <GrandTotal>
             <Row>
               <StyledBody>GRAND TOTAL</StyledBody>
-              <GrandPrice>$ {state.total + 50 + state.total * 0.2}</GrandPrice>
+              <GrandPrice>
+                $ {state.total + 50 + Math.round(state.total * 0.2)}
+              </GrandPrice>
             </Row>
           </GrandTotal>
         </>
