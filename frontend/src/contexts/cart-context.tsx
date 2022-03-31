@@ -15,24 +15,26 @@ const CartContext = React.createContext<CartContextType>([
   },
 ]);
 
-function cartReducer(state: State, { type, payload }: Action): State {
-  switch (type) {
+function cartReducer(state: State, action: Action): State {
+  switch (action.type) {
     case ActionType.ADD:
       return {
-        products: [...state.products, payload],
-        total: state.total + payload.price,
+        products: [...state.products, action.payload],
+        total: state.total + action.payload.price,
       };
     case ActionType.REMOVE:
       return {
         products: [
-          ...state.products.filter((product) => product.slug === payload.slug),
+          ...state.products.filter(
+            (product) => product.slug === action.payload.slug
+          ),
         ],
-        total: state.total - payload.price * payload.quantity,
+        total: state.total - action.payload.price * action.payload.quantity,
       };
     case ActionType.UPDATE:
       const updatedProducts = state.products.map((product) => {
-        if (product.slug === payload.slug) {
-          return payload;
+        if (product.slug === action.payload.slug) {
+          return action.payload;
         }
         return product;
       });
@@ -45,6 +47,8 @@ function cartReducer(state: State, { type, payload }: Action): State {
         products: updatedProducts,
         total: updatedTotal,
       };
+    case ActionType.CLEAR:
+      return initialState;
     default:
       return { ...state };
   }

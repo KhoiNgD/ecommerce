@@ -16,11 +16,13 @@ export enum ActionType {
   ADD = "add",
   REMOVE = "remove",
   UPDATE = "update",
+  CLEAR = "clear",
 }
 
 export type Action =
   | { type: ActionType.ADD; payload: ProductState }
   | { type: ActionType.REMOVE; payload: ProductState }
-  | { type: ActionType.UPDATE; payload: ProductState };
+  | { type: ActionType.UPDATE; payload: ProductState }
+  | { type: ActionType.CLEAR };
 
 export type CartContextType = [state: State, dispatch: React.Dispatch<Action>];
