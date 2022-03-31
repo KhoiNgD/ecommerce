@@ -67,7 +67,9 @@ function useCart() {
 
 function useCheckAddedToCart(productSlug: string) {
   const { state } = useCart();
-  return state.products.find((product) => product.slug === productSlug);
+  return Boolean(
+    state.products.find((product) => product.slug === productSlug)
+  );
 }
 
 export { CartProvider, useCart, useCheckAddedToCart };

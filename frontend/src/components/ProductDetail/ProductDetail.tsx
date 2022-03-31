@@ -2,7 +2,7 @@ import { Button } from "components/Button/Button";
 import { InputNumber } from "components/InputNumber";
 import { ResponsivePicture } from "components/ResponsivePicture";
 import { Body, H2, H6, Overline } from "components/Typographies";
-import { useCart } from "contexts/cart-context";
+import { useCart, useCheckAddedToCart } from "contexts/cart-context";
 import { ActionType } from "contexts/cart-context.types";
 import { IProduct } from "helpers/types";
 import styled from "styled-components";
@@ -19,6 +19,7 @@ function ProductDetail({ product }: Props) {
   } = product;
 
   const { dispatch } = useCart();
+  const isAddedToCart = useCheckAddedToCart(slug);
 
   function handleAddToCart() {
     dispatch({
@@ -50,7 +51,11 @@ function ProductDetail({ product }: Props) {
         <H6>$ {price}</H6>
         <ActionWrapper>
           <InputNumber maxValue={3} />
-          <Button onClick={handleAddToCart} variant="fill">
+          <Button
+            onClick={handleAddToCart}
+            variant="fill"
+            disable={isAddedToCart}
+          >
             Add To Cart
           </Button>
         </ActionWrapper>
