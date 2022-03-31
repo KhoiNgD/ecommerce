@@ -1,19 +1,24 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-type Props = { quantity: React.ReactNode };
-function ProductSummaryItem({ quantity }: Props) {
+type Props = {
+  quantity: React.ReactNode;
+  slug: string;
+  name: string;
+  price: number;
+};
+function ProductSummaryItem({ quantity, slug, name, price }: Props) {
   return (
     <Wrapper>
       <ImageWrapper>
         <Image
-          src={`${process.env.PUBLIC_URL}/assets/cart/image-xx99-mark-two-headphones.jpg`}
+          src={`${process.env.PUBLIC_URL}/assets/cart/image-${slug}.jpg`}
         />
       </ImageWrapper>
       <ProductInfo>
         <div>
-          <Name>XX99 MK II</Name>
-          <Price>$ 2,999</Price>
+          <Name>{name.toUpperCase()}</Name>
+          <Price>$ {price}</Price>
         </div>
         {quantity}
       </ProductInfo>

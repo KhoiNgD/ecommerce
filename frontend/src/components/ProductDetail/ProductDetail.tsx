@@ -2,6 +2,8 @@ import { Button } from "components/Button/Button";
 import { InputNumber } from "components/InputNumber";
 import { ResponsivePicture } from "components/ResponsivePicture";
 import { Body, H2, H6, Overline } from "components/Typographies";
+import { useCart } from "contexts/cart-context";
+import { ActionType } from "contexts/cart-context.types";
 import { IProduct } from "helpers/types";
 import styled from "styled-components";
 
@@ -12,8 +14,23 @@ function ProductDetail({ product }: Props) {
     name,
     description,
     price,
+    slug,
     image: { mobile, tablet, desktop },
   } = product;
+
+  const { dispatch } = useCart();
+
+  function handleAddToCart() {
+    dispatch({
+      type: ActionType.ADD,
+      payload: {
+        name,
+        price,
+        slug,
+        quantity: 1,
+      },
+    });
+  }
 
   return (
     <Wrapper>
@@ -33,7 +50,9 @@ function ProductDetail({ product }: Props) {
         <H6>$ {price}</H6>
         <ActionWrapper>
           <InputNumber maxValue={3} />
-          <Button variant="fill">Add To Cart</Button>
+          <Button onClick={handleAddToCart} variant="fill">
+            Add To Cart
+          </Button>
         </ActionWrapper>
       </ProductInformation>
     </Wrapper>

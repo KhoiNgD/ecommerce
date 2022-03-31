@@ -9,6 +9,7 @@ interface Props {
   className?: string;
   type?: "button" | "reset" | "submit" | undefined;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disable?: boolean;
 }
 
 function Button({ variant = "normal", ...props }: Props) {

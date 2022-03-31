@@ -5,6 +5,7 @@ import { InputNumber } from "components/InputNumber";
 import { PriceDetail } from "components/PriceDetail";
 import { ProductSummaryItem } from "components/ProductSummaryItem";
 import { H6 } from "components/Typographies";
+import { useCart } from "contexts/cart-context";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Dialog } from "./Dialog";
@@ -15,6 +16,7 @@ type Props = {
 };
 function CartDialog(props: Props) {
   const navigate = useNavigate();
+  const { state } = useCart();
 
   function navigateToCheckout() {
     navigate("/checkout");
@@ -25,18 +27,24 @@ function CartDialog(props: Props) {
       <Container>
         <StyledDialogContent aria-label="Cart">
           <TopWrapper>
-            <H6>Cart (3)</H6>
+            <H6>Cart ({state.products.length})</H6>
             <Remove>Remove All</Remove>
           </TopWrapper>
 
           <ProductList>
-            <ProductSummaryItem quantity={<InputNumber small maxValue={3} />} />
-            <ProductSummaryItem quantity={<InputNumber small maxValue={3} />} />
-            <ProductSummaryItem quantity={<InputNumber small maxValue={3} />} />
+            {state.products.length
+              ? state.products.map((product) => (
+                  <ProductSummaryItem
+                    key={product.name}
+                    {...product}
+                    quantity={<InputNumber small maxValue={3} />}
+                  />
+                ))
+              : "Cart is empty"}
           </ProductList>
 
           <dl>
-            <PriceDetail title="TOTAL" price="5,396" />
+            <PriceDetail title="TOTAL" price={state.total} />
           </dl>
 
           <StyledButton onClick={navigateToCheckout} variant="fill">

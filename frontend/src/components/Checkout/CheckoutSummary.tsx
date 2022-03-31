@@ -2,6 +2,7 @@ import { Button } from "components/Button/Button";
 import { PriceDetail } from "components/PriceDetail";
 import { ProductSummaryItem } from "components/ProductSummaryItem";
 import { Body, H6 } from "components/Typographies";
+import { useCart } from "contexts/cart-context";
 import styled from "styled-components";
 
 function Quantity() {
@@ -10,26 +11,45 @@ function Quantity() {
 
 type Props = { className?: string };
 function CheckoutSummary({ className = "" }: Props) {
+  const { state } = useCart();
+
   return (
     <Wrapper className={className}>
       <H6>Summary</H6>
       <ProductList>
-        <ProductSummaryItem quantity={<Quantity />} />
-        <ProductSummaryItem quantity={<Quantity />} />
-        <ProductSummaryItem quantity={<Quantity />} />
+        {state.products.length
+          ? state.products.map((product) => (
+              <ProductSummaryItem
+                key={product.name}
+                {...product}
+                quantity={<Quantity />}
+              />
+            ))
+          : "Please add product(s) to continue"}
       </ProductList>
-      <TotalSummary>
-        <PriceDetail title="TOTAL" price="5,396" />
-        <PriceDetail title="SHIPPING" price="50" />
-        <PriceDetail title="VAT (INCLUDED)" price="1,079" />
-      </TotalSummary>
-      <GrandTotal>
-        <Row>
-          <StyledBody>GRAND TOTAL</StyledBody>
-          <GrandPrice>$ 5,446</GrandPrice>
-        </Row>
-      </GrandTotal>
-      <StyledButton type="submit" variant="fill">
+      {state.total ? (
+        <>
+          <TotalSummary>
+            <PriceDetail title="TOTAL" price={state.total} />
+            <PriceDetail title="SHIPPING" price={50} />
+            <PriceDetail title="VAT (INCLUDED)" price={state.total * 0.2} />
+          </TotalSummary>
+          <GrandTotal>
+            <Row>
+              <StyledBody>GRAND TOTAL</StyledBody>
+              <GrandPrice>$ {state.total + 50 + state.total * 0.2}</GrandPrice>
+            </Row>
+          </GrandTotal>
+        </>
+      ) : (
+        <></>
+      )}
+
+      <StyledButton
+        type="submit"
+        variant="fill"
+        disable={state.products.length === 0}
+      >
         Continue & Pay
       </StyledButton>
     </Wrapper>

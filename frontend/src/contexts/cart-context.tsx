@@ -8,12 +8,12 @@ import {
 
 const initialState = { products: [], total: 0 };
 
-const CartContext = React.createContext<CartContextType>([
-  initialState,
-  (): void => {
+const CartContext = React.createContext<CartContextType>({
+  state: initialState,
+  dispatch(): void {
     throw new Error("setContext function must be overriden");
   },
-]);
+});
 
 function cartReducer(state: State, action: Action): State {
   switch (action.type) {
@@ -57,7 +57,7 @@ function cartReducer(state: State, action: Action): State {
 type Props = { children: React.ReactNode };
 function CartProvider({ children }: Props) {
   const [state, dispatch] = React.useReducer(cartReducer, initialState);
-  const value: CartContextType = [state, dispatch];
+  const value = { state, dispatch };
   return <CartContext.Provider value={value} children={children} />;
 }
 
@@ -71,7 +71,7 @@ function useCart() {
 }
 
 function useCheckAddedToCart(productSlug: string) {
-  const [state] = useCart();
+  const { state } = useCart();
   return state.products.find((product) => product.slug === productSlug);
 }
 

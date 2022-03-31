@@ -25,4 +25,7 @@ export type Action =
   | { type: ActionType.UPDATE; payload: ProductState }
   | { type: ActionType.CLEAR };
 
-export type CartContextType = [state: State, dispatch: React.Dispatch<Action>];
+export type CartContextType = {
+  state: State;
+  dispatch: React.Dispatch<Action>;
+};

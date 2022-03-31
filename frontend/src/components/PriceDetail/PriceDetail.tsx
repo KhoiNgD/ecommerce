@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-type Props = { title: string; price: string };
+type Props = { title: string; price: number };
 function PriceDetail({ title, price }: Props) {
   return (
     <Wrapper>
