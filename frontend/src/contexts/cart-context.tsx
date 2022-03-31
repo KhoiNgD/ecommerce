@@ -66,4 +66,9 @@ function useCart() {
   return context;
 }
 
-export { CartProvider, useCart };
+function useCheckAddedToCart(productSlug: string) {
+  const [state] = useCart();
+  return state.products.find((product) => product.slug === productSlug);
+}
+
+export { CartProvider, useCart, useCheckAddedToCart };
