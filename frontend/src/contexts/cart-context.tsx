@@ -8,12 +8,7 @@ import {
 
 const initialState = { products: [], total: 0 };
 
-const CartContext = React.createContext<CartContextType>({
-  state: initialState,
-  dispatch(): void {
-    throw new Error("setContext function must be overriden");
-  },
-});
+const CartContext = React.createContext<CartContextType>({} as CartContextType);
 
 function cartReducer(state: State, action: Action): State {
   switch (action.type) {
