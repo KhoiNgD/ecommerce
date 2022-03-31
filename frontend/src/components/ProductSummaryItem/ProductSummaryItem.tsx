@@ -8,6 +8,8 @@ type Props = {
   price: number;
 };
 function ProductSummaryItem({ quantity, slug, name, price }: Props) {
+  const regex = new RegExp("headphones|earphones|speakers", "gi");
+
   return (
     <Wrapper>
       <ImageWrapper>
@@ -17,7 +19,7 @@ function ProductSummaryItem({ quantity, slug, name, price }: Props) {
       </ImageWrapper>
       <ProductInfo>
         <div>
-          <Name>{name.toUpperCase()}</Name>
+          <Name>{name.toUpperCase().replace(regex, "").trim()}</Name>
           <Price>$ {price}</Price>
         </div>
         {quantity}
