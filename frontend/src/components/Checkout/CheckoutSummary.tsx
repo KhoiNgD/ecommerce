@@ -5,8 +5,8 @@ import { Body, H6 } from "components/Typographies";
 import { useCart } from "contexts/cart-context";
 import styled from "styled-components";
 
-function Quantity() {
-  return <ProductQuantity>x1</ProductQuantity>;
+function Quantity({ quantity }: { quantity: number }) {
+  return <ProductQuantity>x{quantity}</ProductQuantity>;
 }
 
 type Props = { className?: string };
@@ -22,7 +22,7 @@ function CheckoutSummary({ className = "" }: Props) {
               <ProductSummaryItem
                 key={product.name}
                 {...product}
-                quantity={<Quantity />}
+                quantity={<Quantity quantity={product.quantity} />}
               />
             ))
           : "Please add product(s) to continue"}
