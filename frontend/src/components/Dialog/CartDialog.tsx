@@ -42,7 +42,7 @@ function CartDialog(props: Props) {
                   <ProductSummaryItem
                     key={product.name}
                     {...product}
-                    quantity={<InputNumber small maxValue={3} />}
+                    quantity={<InputNumber small />}
                   />
                 ))
               : "Cart is empty"}

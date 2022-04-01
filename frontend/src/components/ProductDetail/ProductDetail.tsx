@@ -50,7 +50,7 @@ function ProductDetail({ product }: Props) {
         <StyledBody>{description}</StyledBody>
         <H6>$ {price}</H6>
         <ActionWrapper>
-          <InputNumber maxValue={3} />
+          <InputNumber />
           <Button
             onClick={handleAddToCart}
             variant="fill"

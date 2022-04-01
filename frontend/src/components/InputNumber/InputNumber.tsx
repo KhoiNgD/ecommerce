@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Sign from "./Sign";
 
-type Props = { small?: boolean; minValue?: number; maxValue: number };
+type Props = { small?: boolean; minValue?: number; maxValue?: number };
 function InputNumber({ small = false, minValue = 0, maxValue }: Props) {
   const [value, setValue] = React.useState(0);
 
@@ -16,7 +16,7 @@ function InputNumber({ small = false, minValue = 0, maxValue }: Props) {
 
   function handlePlus() {
     const num = value + 1;
-    if (num > maxValue) {
+    if (maxValue && num > maxValue) {
       return;
     }
     setValue(value + 1);
@@ -24,7 +24,7 @@ function InputNumber({ small = false, minValue = 0, maxValue }: Props) {
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const num = Number(e.target.value);
-    if (num > maxValue) {
+    if ((maxValue && num > maxValue) || num < minValue) {
       return;
     }
     setValue(num);
