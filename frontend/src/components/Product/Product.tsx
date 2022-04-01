@@ -11,18 +11,22 @@ function Product({ product }: Props) {
     <Wrapper>
       <PictureWrapper>
         <ResponsivePicture
-          mobileSrc={`${process.env.PUBLIC_URL}${product.image.mobile.slice(1)}`}
-          tabletSrc={`${process.env.PUBLIC_URL}${product.image.tablet.slice(1)}`}
-          desktopSrc={`${process.env.PUBLIC_URL}${product.image.desktop.slice(1)}`}
+          mobileSrc={`${
+            process.env.PUBLIC_URL
+          }${product.categoryImage.mobile.slice(1)}`}
+          tabletSrc={`${
+            process.env.PUBLIC_URL
+          }${product.categoryImage.tablet.slice(1)}`}
+          desktopSrc={`${
+            process.env.PUBLIC_URL
+          }${product.categoryImage.desktop.slice(1)}`}
           alt={product.name}
         />
       </PictureWrapper>
       <ProductInformation>
         <StyledOverline>{product.new ? "New Product" : ""}</StyledOverline>
         <H2>{product.name}</H2>
-        <Description>
-          {product.description}
-        </Description>
+        <Description>{product.description}</Description>
         <NavLink to={product.slug}>
           <Button variant="fill">See Product</Button>
         </NavLink>
