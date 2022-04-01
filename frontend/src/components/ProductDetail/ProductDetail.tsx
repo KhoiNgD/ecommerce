@@ -22,6 +22,8 @@ function ProductDetail({ product }: Props) {
   const { dispatch } = useCart();
   const productInCart = useCheckAddedToCart(slug);
   const isAddedToCart = Boolean(productInCart);
+  console.log(isAddedToCart);
+
   const inputProps = useInputNumber({
     defaultValue: isAddedToCart ? productInCart?.quantity : 1,
     update: updateCartItem,
@@ -69,7 +71,7 @@ function ProductDetail({ product }: Props) {
           <Button
             onClick={handleAddToCart}
             variant="fill"
-            disable={isAddedToCart}
+            disabled={isAddedToCart}
           >
             Add To Cart
           </Button>
