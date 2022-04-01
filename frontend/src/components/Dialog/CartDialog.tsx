@@ -7,9 +7,21 @@ import { ProductSummaryItem } from "components/ProductSummaryItem";
 import { H6 } from "components/Typographies";
 import { useCart } from "contexts/cart-context";
 import { ActionType } from "contexts/cart-context.types";
+import { useInputNumber } from "hooks/input-number";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Dialog } from "./Dialog";
+
+function Quantity({
+  quantity,
+  update,
+}: {
+  quantity: number;
+  update: (quantity: number) => void;
+}) {
+  const inputProps = useInputNumber({ defaultValue: quantity, update });
+  return <InputNumber small {...inputProps} />;
+}
 
 type Props = {
   isOpen: boolean;
@@ -27,6 +39,32 @@ function CartDialog(props: Props) {
     dispatch({ type: ActionType.CLEAR });
   }
 
+  function generateProductItem() {
+    return state.products.map((product) => {
+      function updateCartItem(quantity: number) {
+        dispatch({
+          type: ActionType.UPDATE,
+          payload: {
+            name: product.name,
+            price: product.price,
+            slug: product.slug,
+            quantity,
+          },
+        });
+      }
+
+      return (
+        <ProductSummaryItem
+          key={product.name}
+          {...product}
+          quantity={
+            <Quantity quantity={product.quantity} update={updateCartItem} />
+          }
+        />
+      );
+    });
+  }
+
   return (
     <StyledDialog {...props}>
       <Container>
@@ -37,15 +75,7 @@ function CartDialog(props: Props) {
           </TopWrapper>
 
           <ProductList>
-            {state.products.length
-              ? state.products.map((product) => (
-                  <ProductSummaryItem
-                    key={product.name}
-                    {...product}
-                    quantity={<InputNumber small />}
-                  />
-                ))
-              : "Cart is empty"}
+            {state.products.length ? generateProductItem() : "Cart is empty"}
           </ProductList>
 
           <dl>

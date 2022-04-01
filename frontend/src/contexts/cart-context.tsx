@@ -15,7 +15,7 @@ function cartReducer(state: State, action: Action): State {
     case ActionType.ADD:
       return {
         products: [...state.products, action.payload],
-        total: state.total + action.payload.price,
+        total: state.total + action.payload.price * action.payload.quantity,
       };
     case ActionType.REMOVE:
       return {
@@ -67,9 +67,7 @@ function useCart() {
 
 function useCheckAddedToCart(productSlug: string) {
   const { state } = useCart();
-  return Boolean(
-    state.products.find((product) => product.slug === productSlug)
-  );
+  return state.products.find((product) => product.slug === productSlug);
 }
 
 export { CartProvider, useCart, useCheckAddedToCart };

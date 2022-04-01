@@ -2,37 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import Sign from "./Sign";
 
-type Props = { small?: boolean; minValue?: number; maxValue?: number };
-function InputNumber({ small = false, minValue = 0, maxValue }: Props) {
-  const [value, setValue] = React.useState(0);
-
-  function handleMinus() {
-    const num = value - 1;
-    if (num < minValue) {
-      return;
-    }
-    setValue(num);
-  }
-
-  function handlePlus() {
-    const num = value + 1;
-    if (maxValue && num > maxValue) {
-      return;
-    }
-    setValue(value + 1);
-  }
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const num = Number(e.target.value);
-    if ((maxValue && num > maxValue) || num < minValue) {
-      return;
-    }
-    setValue(num);
-  }
-
+type Props = {
+  small?: boolean;
+  value: number;
+  handleAdd: () => void;
+  handleSubstract: () => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+function InputNumber({
+  value,
+  handleAdd,
+  handleSubstract,
+  handleChange,
+  small = false,
+}: Props) {
   return (
     <Wrapper>
-      <Sign isSmall={small} handleClick={handleMinus}>
+      <Sign isSmall={small} handleClick={handleSubstract}>
         -
       </Sign>
       <Input
@@ -41,7 +27,7 @@ function InputNumber({ small = false, minValue = 0, maxValue }: Props) {
         onChange={handleChange}
         type="number"
       />
-      <Sign isSmall={small} handleClick={handlePlus}>
+      <Sign isSmall={small} handleClick={handleAdd}>
         +
       </Sign>
     </Wrapper>

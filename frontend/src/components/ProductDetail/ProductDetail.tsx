@@ -5,6 +5,7 @@ import { Body, H2, H6, Overline } from "components/Typographies";
 import { useCart, useCheckAddedToCart } from "contexts/cart-context";
 import { ActionType } from "contexts/cart-context.types";
 import { IProduct } from "helpers/types";
+import { useInputNumber } from "hooks/input-number";
 import styled from "styled-components";
 
 type Props = { product: IProduct };
@@ -19,17 +20,31 @@ function ProductDetail({ product }: Props) {
   } = product;
 
   const { dispatch } = useCart();
-  const isAddedToCart = useCheckAddedToCart(slug);
+  const productInCart = useCheckAddedToCart(slug);
+  const isAddedToCart = Boolean(productInCart);
+  const inputProps = useInputNumber({
+    defaultValue: isAddedToCart ? productInCart?.quantity : 1,
+    update: updateCartItem,
+  });
+
+  const payload = {
+    name,
+    price,
+    slug,
+    quantity: inputProps.value,
+  };
 
   function handleAddToCart() {
     dispatch({
       type: ActionType.ADD,
-      payload: {
-        name,
-        price,
-        slug,
-        quantity: 1,
-      },
+      payload,
+    });
+  }
+
+  function updateCartItem(quantity: number) {
+    dispatch({
+      type: ActionType.UPDATE,
+      payload: { ...payload, quantity },
     });
   }
 
@@ -50,7 +65,7 @@ function ProductDetail({ product }: Props) {
         <StyledBody>{description}</StyledBody>
         <H6>$ {price}</H6>
         <ActionWrapper>
-          <InputNumber />
+          <InputNumber {...inputProps} />
           <Button
             onClick={handleAddToCart}
             variant="fill"
