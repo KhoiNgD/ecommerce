@@ -27,6 +27,11 @@ const StyledButton = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
+
+  &:disabled,
+  &:disabled:hover {
+    background: hsl(var(--grey));
+  }
 `;
 
 const FillButton = styled(StyledButton)`
