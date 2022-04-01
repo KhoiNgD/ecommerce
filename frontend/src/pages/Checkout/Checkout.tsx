@@ -1,6 +1,8 @@
 import { CheckoutForm, CheckoutSummary } from "components/Checkout";
 import { Container } from "components/Container";
+import { PaySuccessDialog } from "components/Dialog";
 import { NavigateBack } from "components/NavigateBack/NavigateBack";
+import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import styled from "styled-components";
 
@@ -21,10 +23,17 @@ type FormData = {
 };
 
 function Checkout() {
+  const [showDialog, setShowDialog] = React.useState(false);
+  const openDialog = () => setShowDialog(true);
+  const closeDialog = () => setShowDialog(false);
+
   const methods = useForm<FormData>({
     defaultValues: { paymentMethod: "emoney" },
   });
-  const onSubmit = methods.handleSubmit((data) => console.log(data));
+  const onSubmit = methods.handleSubmit((data) => {
+    console.log(data);
+    openDialog();
+  });
 
   return (
     <Wrapper>
@@ -37,6 +46,8 @@ function Checkout() {
           </Form>
         </FormProvider>
       </Container>
+
+      <PaySuccessDialog isOpen={showDialog} onDismiss={closeDialog} />
     </Wrapper>
   );
 }

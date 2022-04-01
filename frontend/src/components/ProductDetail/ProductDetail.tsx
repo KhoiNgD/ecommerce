@@ -65,13 +65,13 @@ function ProductDetail({ product }: Props) {
         <StyledBody>{description}</StyledBody>
         <H6>$ {price}</H6>
         <ActionWrapper>
-          <InputNumber {...inputProps} />
+          {!isAddedToCart && <InputNumber {...inputProps} />}
           <Button
             onClick={handleAddToCart}
             variant="fill"
             disabled={isAddedToCart}
           >
-            Add To Cart
+            {isAddedToCart ? "Added to Cart" : "Add To Cart"}
           </Button>
         </ActionWrapper>
       </ProductInformation>
