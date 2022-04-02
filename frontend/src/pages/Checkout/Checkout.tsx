@@ -60,18 +60,18 @@ const GoBack = styled(NavigateBack)`
   }
 `;
 
-const Wrapper = styled.div`
-  padding-top: 80px;
+const Wrapper = styled.section`
+  padding-top: calc(80px + 94px); // section padding + header height
   padding-bottom: 142px;
   background: #f1f1f1;
 
   @media (max-width: 1100px) {
-    padding-top: 48px;
+    padding-top: calc(48px + 94px);
     padding-bottom: 116px;
   }
 
   @media (max-width: 550px) {
-    padding-top: 16px;
+    padding-top: calc(16px + 94px);
     padding-bottom: 96px;
   }
 `;

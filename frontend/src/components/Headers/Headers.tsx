@@ -16,7 +16,7 @@ function Headers() {
     const headerObs = new IntersectionObserver(
       function absHeader(entries) {
         const [entry] = entries;
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && isHomePage) {
           header[0].style.position = "absolute";
           header[0].style.background = "transparent";
         } else {
