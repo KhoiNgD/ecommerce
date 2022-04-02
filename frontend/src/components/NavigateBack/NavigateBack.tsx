@@ -15,6 +15,7 @@ function NavigateBack({ className = "" }: Props) {
 }
 
 const Wrapper = styled(Body)`
+  width: max-content;
   cursor: pointer;
   color: hsl(var(--primary-dark) / 0.5);
 `;
