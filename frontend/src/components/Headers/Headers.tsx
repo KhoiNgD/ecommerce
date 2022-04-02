@@ -10,7 +10,7 @@ function Headers() {
 
   return (
     <>
-      <Header />
+      <Header isHomePage={!path} />
       {!path && <HeroHeader />}
 
       {path && categories.includes(path) && <CategoryHeader category={path} />}

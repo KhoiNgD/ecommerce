@@ -49,6 +49,7 @@ function HeroHeader() {
 }
 
 const Wrapper = styled.section`
+  margin-top: -94px;
   position: relative;
 `;
 
