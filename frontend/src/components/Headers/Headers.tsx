@@ -27,7 +27,7 @@ function Headers() {
   );
 }
 
-const HeaderWrapper = styled("div")`
+const HeaderWrapper = styled("section")`
   background: hsl(var(--primary-dark));
 `;
 

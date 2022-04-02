@@ -73,7 +73,7 @@ const ContentWrapper = styled.div`
   }
 `;
 
-const ProminentText = styled.span`
+const ProminentText = styled.strong`
   color: hsl(var(--primary-color));
 `;
 

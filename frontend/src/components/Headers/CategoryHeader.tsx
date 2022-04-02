@@ -20,7 +20,7 @@ function CategoryHeader({ category }: Props) {
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   background: hsl(var(--primary-dark));
   color: hsl(var(--primary-white));
 `;
