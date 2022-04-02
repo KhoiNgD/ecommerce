@@ -4,6 +4,7 @@ import { Navigation } from "components/Navigation";
 import { Logo } from "components/Logo";
 import { CartDialog } from "components/Dialog";
 import React from "react";
+import { Container } from "components/Container";
 
 type Props = { className?: string };
 function Header({ className = "" }: Props) {
@@ -13,29 +14,41 @@ function Header({ className = "" }: Props) {
 
   return (
     <Wrapper className={className}>
-      <Logo />
+      <StyledContainer>
+        <Logo />
 
-      <Navigation />
+        <Navigation />
 
-      <CartWrapper>
-        <Cart onClick={openDialog} />
-      </CartWrapper>
+        <CartWrapper>
+          <Cart onClick={openDialog} />
+        </CartWrapper>
 
-      <CartDialog isOpen={showDialog} onDismiss={closeDialog} />
+        <CartDialog isOpen={showDialog} onDismiss={closeDialog} />
+      </StyledContainer>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.header`
-  height: 97px;
-  background: transparent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 
   @media (max-width: 1100px) {
     height: 90px;
   }
+`;
+
+const StyledContainer = styled(Container)`
+  background: transparent;
+  padding-top: 32px;
+  padding-bottom: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid hsl(var(--primary-white) / 0.2);
 `;
 
 const CartWrapper = styled.div`

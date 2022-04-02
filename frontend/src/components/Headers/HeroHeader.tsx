@@ -3,8 +3,6 @@ import { Container } from "components/Container";
 import { Body, H1, Overline } from "components/Typographies";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { Border } from "./Border";
-import { Header } from "./Header";
 
 function HeroHeader() {
   const navigate = useNavigate();
@@ -31,8 +29,6 @@ function HeroHeader() {
       </Picture>
 
       <StyledContainer>
-        <Header />
-        <Border />
         <HeroContent>
           <HeroTextBox>
             <StyledOverline>New Product</StyledOverline>

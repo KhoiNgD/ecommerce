@@ -1,6 +1,4 @@
-import { Container } from "components/Container";
 import { useLocation } from "react-router-dom";
-import styled from "styled-components";
 import { CategoryHeader } from "./CategoryHeader";
 import { Header } from "./Header";
 import { HeroHeader } from "./HeroHeader";
@@ -10,25 +8,14 @@ function Headers() {
   const categories = ["headphones", "earphones", "speakers"];
   const path = pathname.split("/").at(-1);
 
-  if (!path) {
-    return <HeroHeader />;
-  }
-
-  if (categories.includes(path)) {
-    return <CategoryHeader category={path} />;
-  }
-
   return (
-    <HeaderWrapper>
-      <Container>
-        <Header />
-      </Container>
-    </HeaderWrapper>
+    <>
+      <Header />
+      {!path && <HeroHeader />}
+
+      {path && categories.includes(path) && <CategoryHeader category={path} />}
+    </>
   );
 }
-
-const HeaderWrapper = styled("section")`
-  background: hsl(var(--primary-dark));
-`;
 
 export { Headers };
