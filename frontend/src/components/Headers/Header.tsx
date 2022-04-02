@@ -33,7 +33,7 @@ const Wrapper = styled.header<{ isHomePage: boolean }>`
   width: 100%;
   background: ${({ isHomePage }) =>
     isHomePage ? "transparent" : "hsl(var(--primary-dark))"};
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;

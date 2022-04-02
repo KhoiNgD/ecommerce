@@ -15,6 +15,7 @@ function CategoryHeader({ category }: Props) {
 }
 
 const Wrapper = styled.section`
+  padding-top: 94px;
   background: hsl(var(--primary-dark));
   color: hsl(var(--primary-white));
 `;
