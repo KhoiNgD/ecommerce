@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-type Props = { htmlFor: string; children: React.ReactNode };
+type Props = { htmlFor: string; className?: string; children: React.ReactNode };
 function FormLabel(props: Props) {
   return <Label {...props} />;
 }

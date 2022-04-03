@@ -16,12 +16,25 @@ function TextField({
   type = "text",
   className = "",
 }: Props) {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+  const isError = Boolean(errors[id]?.message);
 
   return (
     <Wrapper className={className}>
-      <FormLabel htmlFor={id}>{label}</FormLabel>
-      <Input id={id} placeholder={placeholder} type={type} {...register(id)} />
+      <StyledLabel isError={isError} htmlFor={id}>
+        {label}
+      </StyledLabel>
+      <Input
+        isError={isError}
+        id={id}
+        placeholder={placeholder}
+        type={type}
+        {...register(id)}
+      />
+      <ErrorMessage>{errors[id]?.message}</ErrorMessage>
     </Wrapper>
   );
 }
@@ -30,12 +43,18 @@ const Wrapper = styled.p`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  position: relative;
 `;
 
-const Input = styled.input`
+const StyledLabel = styled(FormLabel)<{ isError: boolean }>`
+  color: ${({ isError }) => isError && "#cd2c2c"};
+`;
+
+const Input = styled.input<{ isError: boolean }>`
   padding: 20px 24px;
   outline: none;
-  border: 1px solid #cfcfcf;
+  border: 1px solid;
+  border-color: ${({ isError }) => (isError ? "#cd2c2c" : "#cfcfcf")};
   border-radius: var(--border-radius);
   font-size: 1.4rem;
   font-weight: 700;
@@ -46,7 +65,8 @@ const Input = styled.input`
   &:hover,
   &:active,
   &:focus {
-    border-color: hsl(var(--primary-color));
+    border-color: ${({ isError }) =>
+      isError ? "#cd2c2c" : "hsl(var(--primary-color))"};
   }
 
   &::placeholder {
@@ -56,6 +76,17 @@ const Input = styled.input`
   @media (max-width: 1100px) {
     padding: 18px 24px;
   }
+`;
+
+const ErrorMessage = styled.strong`
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: -0.21;
+  color: #cd2c2c;
+
+  position: absolute;
+  top: 0;
+  right: 0;
 `;
 
 export { TextField };

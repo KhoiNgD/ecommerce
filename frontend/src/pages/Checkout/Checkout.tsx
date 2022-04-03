@@ -5,6 +5,8 @@ import { NavigateBack } from "components/NavigateBack/NavigateBack";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import styled from "styled-components";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 type FormData = {
   // Billing Details
@@ -18,9 +20,34 @@ type FormData = {
   country: string;
   // Payment Details
   paymentMethod: string;
-  eMoneyNumber?: string;
-  eMoneyPin?: string;
+  emoneyNumber?: string;
+  emoneyPin?: string;
 };
+
+const schema = yup.object({
+  name: yup
+    .string()
+    .matches(/^[aA-zZ\s]+$/, "Wrong format")
+    .required("Can't be empty"),
+  email: yup.string().email("Wrong format").required("Can't be empty"),
+  phone: yup.string().required("Can't be empty"),
+  address: yup.string().required("Can't be empty"),
+  zipCode: yup.string().required("Can't be empty"),
+  city: yup.string().required("Can't be empty"),
+  country: yup.string().required("Can't be empty"),
+  paymentMethod: yup
+    .string()
+    .equals(["emoney", "cash"])
+    .required("Can't be empty"),
+  emoneyNumber: yup.string().when("paymentMethod", {
+    is: "emoney",
+    then: yup.string().required("Can't be empty"),
+  }),
+  emoneyPin: yup.string().when("paymentMethod", {
+    is: "emoney",
+    then: yup.string().required("Can't be empty"),
+  }),
+});
 
 function Checkout() {
   const [showDialog, setShowDialog] = React.useState(false);
@@ -29,6 +56,7 @@ function Checkout() {
 
   const methods = useForm<FormData>({
     defaultValues: { paymentMethod: "emoney" },
+    resolver: yupResolver(schema),
   });
   const onSubmit = methods.handleSubmit((data) => {
     console.log(data);
