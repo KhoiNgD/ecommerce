@@ -25,28 +25,28 @@ type FormData = {
 };
 
 const schema = yup.object({
-  // name: yup
-  //   .string()
-  //   .matches(/^[aA-zZ\s]+$/, "Wrong format")
-  //   .required("Can't be empty"),
-  // email: yup.string().email("Wrong format").required("Can't be empty"),
-  // phone: yup.string().required("Can't be empty"),
-  // address: yup.string().required("Can't be empty"),
-  // zipCode: yup.string().required("Can't be empty"),
-  // city: yup.string().required("Can't be empty"),
-  // country: yup.string().required("Can't be empty"),
-  // paymentMethod: yup
-  //   .string()
-  //   .equals(["emoney", "cash"])
-  //   .required("Can't be empty"),
-  // emoneyNumber: yup.string().when("paymentMethod", {
-  //   is: "emoney",
-  //   then: yup.string().required("Can't be empty"),
-  // }),
-  // emoneyPin: yup.string().when("paymentMethod", {
-  //   is: "emoney",
-  //   then: yup.string().required("Can't be empty"),
-  // }),
+  name: yup
+    .string()
+    .matches(/^[aA-zZ\s]+$/, "Wrong format")
+    .required("Can't be empty"),
+  email: yup.string().email("Wrong format").required("Can't be empty"),
+  phone: yup.string().required("Can't be empty"),
+  address: yup.string().required("Can't be empty"),
+  zipCode: yup.string().required("Can't be empty"),
+  city: yup.string().required("Can't be empty"),
+  country: yup.string().required("Can't be empty"),
+  paymentMethod: yup
+    .string()
+    .equals(["emoney", "cash"])
+    .required("Can't be empty"),
+  emoneyNumber: yup.string().when("paymentMethod", {
+    is: "emoney",
+    then: yup.string().required("Can't be empty"),
+  }),
+  emoneyPin: yup.string().when("paymentMethod", {
+    is: "emoney",
+    then: yup.string().required("Can't be empty"),
+  }),
 });
 
 function Checkout() {

@@ -82,7 +82,11 @@ function CartDialog(props: Props) {
             <PriceDetail title="TOTAL" price={state.total} />
           </dl>
 
-          <StyledButton onClick={navigateToCheckout} variant="fill">
+          <StyledButton
+            onClick={navigateToCheckout}
+            variant="fill"
+            disabled={!state.products.length}
+          >
             CHECKOUT
           </StyledButton>
         </StyledDialogContent>

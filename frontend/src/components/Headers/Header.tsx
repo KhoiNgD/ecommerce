@@ -15,13 +15,15 @@ function Header({ className = "", isHomePage }: Props) {
   return (
     <Wrapper className={className} isHomePage={isHomePage}>
       <StyledContainer>
-        <Logo />
+        <Side>
+          <Logo />
+        </Side>
 
         <Navigation />
 
-        <CartWrapper>
+        <Side>
           <Cart onClick={openDialog} />
-        </CartWrapper>
+        </Side>
 
         <CartDialog isOpen={showDialog} onDismiss={closeDialog} />
       </StyledContainer>
@@ -43,17 +45,22 @@ const Wrapper = styled.header<{ isHomePage: boolean }>`
   }
 `;
 
+const Side = styled.div`
+  flex: 1;
+
+  & > svg {
+    margin-left: auto;
+    cursor: pointer;
+  }
+`;
+
 const StyledContainer = styled(Container)`
   padding-top: 32px;
   padding-bottom: 36px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   border-bottom: 1px solid hsl(var(--primary-white) / 0.2);
-`;
-
-const CartWrapper = styled.div`
-  cursor: pointer;
 `;
 
 export { Header };

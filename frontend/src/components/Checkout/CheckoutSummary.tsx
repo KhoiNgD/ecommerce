@@ -53,7 +53,7 @@ function CheckoutSummary({ className = "" }: Props) {
       <StyledButton
         type="submit"
         variant="fill"
-        // disabled={state.products.length === 0}
+        disabled={state.products.length === 0}
       >
         Continue & Pay
       </StyledButton>
