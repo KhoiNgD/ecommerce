@@ -18,7 +18,7 @@ function PaySuccessDialog(props: Props) {
           <StyledBody>
             You will receive an email confirmation shortly.
           </StyledBody>
-          <Button variant="fill">Back To Home</Button>
+          <StyledButton variant="fill">Back To Home</StyledButton>
         </StyledDialogContent>
       </Container>
     </StyledDialog>
@@ -32,11 +32,26 @@ const StyledDialog = styled(Dialog)`
 const StyledDialogContent = styled(DialogContent)`
   width: fit-content;
   margin: auto;
+  padding: 48px;
   background: hsl(var(--primary-white));
   border-radius: var(--border-radius);
+
+  @media (max-width: 550px) {
+    padding: 32px;
+  }
 `;
 
-const StyledH3 = styled(H3)``;
-const StyledBody = styled(Body)``;
+const StyledH3 = styled(H3)`
+  margin-bottom: 24px;
+`;
+
+const StyledBody = styled(Body)`
+  margin-bottom: 32px;
+  color: hsl(var(--primary-dark) / 0.5);
+`;
+
+const StyledButton = styled(Button)`
+  width: 100%;
+`;
 
 export { PaySuccessDialog };
