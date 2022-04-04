@@ -2,30 +2,35 @@ import { ReactComponent as Cart } from "assets/icon-cart.svg";
 import styled from "styled-components";
 import { Navigation } from "components/Navigation";
 import { Logo } from "components/Logo";
-import { CartDialog } from "components/Dialog";
+import { CartDialog, MenuDialog } from "components/Dialog";
 import React from "react";
 import { Container } from "components/Container";
+import { ReactComponent as Hamburger } from "assets/icon-hamburger.svg";
 
 type Props = { className?: string; isHomePage: boolean };
 function Header({ className = "", isHomePage }: Props) {
-  const [showDialog, setShowDialog] = React.useState(false);
-  const openDialog = () => setShowDialog(true);
-  const closeDialog = () => setShowDialog(false);
+  const [showCartDialog, setShowCartDialog] = React.useState(false);
+  const openCartDialog = () => setShowCartDialog(true);
+  const closeCartDialog = () => setShowCartDialog(false);
+
+  const [showMenuDialog, setShowMenuDialog] = React.useState(false);
+  const openMenuDialog = () => setShowMenuDialog(true);
+  const closeMenuDialog = () => setShowMenuDialog(false);
 
   return (
     <Wrapper className={className} isHomePage={isHomePage}>
       <StyledContainer>
+        <StyledHamburger onClick={openMenuDialog} />
         <Side>
           <Logo />
         </Side>
-
-        <Navigation />
-
+        <StyledNavigation />
         <Side>
-          <Cart onClick={openDialog} />
+          <Cart onClick={openCartDialog} />
         </Side>
 
-        <CartDialog isOpen={showDialog} onDismiss={closeDialog} />
+        <MenuDialog isOpen={showMenuDialog} onDismiss={closeMenuDialog} />
+        <CartDialog isOpen={showCartDialog} onDismiss={closeCartDialog} />
       </StyledContainer>
     </Wrapper>
   );
@@ -52,15 +57,52 @@ const Side = styled.div`
     margin-left: auto;
     cursor: pointer;
   }
+
+  @media (max-width: 1100px) {
+    flex: revert;
+
+    &:first-of-type {
+      margin-right: auto;
+    }
+  }
+
+  @media (max-width: 550px) {
+    &:first-of-type {
+      margin: 0;
+    }
+  }
 `;
 
 const StyledContainer = styled(Container)`
   padding-top: 32px;
   padding-bottom: 36px;
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   border-bottom: 1px solid hsl(var(--primary-white) / 0.2);
+
+  @media (max-width: 550px) {
+    justify-content: space-between;
+  }
+`;
+
+const StyledHamburger = styled(Hamburger)`
+  display: none;
+  cursor: pointer;
+
+  @media (max-width: 1100px) {
+    display: revert;
+    margin-right: 42px;
+  }
+
+  @media (max-width: 550px) {
+    margin: 0;
+  }
+`;
+
+const StyledNavigation = styled(Navigation)`
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `;
 
 export { Header };

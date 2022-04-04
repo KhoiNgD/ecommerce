@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-function Navigation() {
+type Props = { className?: string };
+function Navigation(props: Props) {
   return (
-    <NavWrapper>
+    <NavWrapper {...props}>
       <StyledNavLink to="/">Home</StyledNavLink>
       <StyledNavLink to="/category/headphones">Headphones</StyledNavLink>
       <StyledNavLink to="/category/speakers">Speakers</StyledNavLink>
