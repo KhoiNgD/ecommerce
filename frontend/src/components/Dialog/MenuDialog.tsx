@@ -21,6 +21,7 @@ const StyledDialog = styled(Dialog)``;
 
 const StyledDialogContent = styled(DialogContent)`
   width: 100%;
+  margin: 0;
   padding: 56px 40px 68px;
   background: hsl(var(--primary-white));
   border-bottom-left-radius: var(--border-radius);

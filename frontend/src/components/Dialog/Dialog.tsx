@@ -15,6 +15,7 @@ function Dialog(props: Props) {
 
 const StyledDialogOverlay = styled(DialogOverlay)`
   background: hsl(var(--primary-dark) / 0.4);
+  top: 90px;
 `;
 
 export { Dialog };

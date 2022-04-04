@@ -101,14 +101,10 @@ const StyledDialogContent = styled(DialogContent)`
   width: 377px;
   padding: 0 32px;
   margin: 0;
-  margin-top: calc(97px + 36px); // Header height + margin
+  margin-top: 36px; // Header height + margin
   margin-left: auto;
   background: hsl(var(--primary-white));
   border-radius: var(--border-radius);
-
-  @media (max-width: 1100px) {
-    margin-top: calc(90px + 36px); // Header height + margin
-  }
 
   @media (max-width: 550px) {
     width: 100%;

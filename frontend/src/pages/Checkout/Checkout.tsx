@@ -59,7 +59,6 @@ function Checkout() {
     resolver: yupResolver(schema),
   });
   const onSubmit = methods.handleSubmit((data) => {
-    console.log(data);
     openDialog();
   });
 
